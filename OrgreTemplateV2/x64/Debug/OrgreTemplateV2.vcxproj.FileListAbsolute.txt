@@ -1,0 +1,8 @@
+C:\Hooman\GBC\GAME3121\Week1\Week1\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.exe
+C:\Hooman\GBC\GAME3121\Course Materials\GameEngineDevelopment\OrgreTemplateV2\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.exe
+D:\Semester 5\Game Engine Development\Ogre\GameEngineDevelopment\OrgreTemplateV2\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.exe
+D:\Semester 5\Game Engine Development\Ogre\GameEngineDevelopment\OrgreTemplateV2\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.pdb
+D:\Semester 5\Game Engine Development\Ogre\GameEngineDevelopment\Assignment_2_Shular_Lee\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.exe
+D:\Semester 5\Game Engine Development\Ogre\GameEngineDevelopment\Assignment_2_Shular_Lee\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.pdb
+D:\Semester 5\Game Engine Development\Assignment_2_Shular_Lee\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.exe
+D:\Semester 5\Game Engine Development\Assignment_2_Shular_Lee\OrgreTemplateV2\x64\Debug\OrgreTemplateV2.pdb
