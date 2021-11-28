@@ -8,6 +8,8 @@
 #include "OgreRTShaderSystem.h"
 #include <OgreCompositorManager.h>
 #include <iostream>
+#include "Platform.h"
+
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -38,10 +40,10 @@ public:
     {
         //std::cout << "Frame started" << std::endl;
 
-        _camNode->yaw(Ogre::Radian(rotX * _mousespeed * evt.timeSinceLastFrame));
+       /* _camNode->yaw(Ogre::Radian(rotX * _mousespeed * evt.timeSinceLastFrame));
         _camNode->pitch(Ogre::Radian(rotY * _mousespeed * evt.timeSinceLastFrame));
         rotX = 0.0f;
-        rotY = 0.0f;
+        rotY = 0.0f;*/
 
         _sceneNode->translate(translate * evt.timeSinceLastFrame);
         translate = Ogre::Vector3(0, 0, 0);
@@ -72,6 +74,9 @@ private:
     Root* mRoot;
     Camera* mCamera;
     SceneNode* mCamNode;
+    Platform* plaform [9];
+    
+
     bool _keepRunning;
 public:
     Game();
@@ -90,7 +95,7 @@ public:
 
 
 Game::Game()
-    : ApplicationContext("Week10-3")
+    : ApplicationContext("Assignment_2_ShularLee")
 {
     _keepRunning = true;
     _movementspeed = 50.0f;
@@ -156,6 +161,23 @@ void Game::createScene()
     Ogre::Entity* ent = mScnMgr->createEntity("Entity1", "Sinbad.mesh");
     //ent->setMaterial(Ogre::MaterialManager::getSingleton().getByName("MyMaterial18"));
     SinbadNode->attachObject(ent);
+
+
+    for (int i = 0; i < 9; i++)
+    {
+        
+        if (i == 0) {
+            plaform[i] = new Platform(mScnMgr, SinbadNode, Ogre::Vector3(0.0f, -10.0f, 0.0f), std::to_string(i) ); 
+        }
+        else
+        {
+            plaform[i] = new Platform(mScnMgr, SinbadNode, plaform[i -1]->GetPosition(), std::to_string(i));
+        }
+        
+    }
+    
+    
+
 }
 
 void Game::createCamera()
@@ -166,11 +188,12 @@ void Game::createCamera()
 
     // create the camera
     mCamera = mScnMgr->createCamera("myCam");
+
     mCamera->setNearClipDistance(5); // specific to this sample
     mCamera->setAutoAspectRatio(true);
     mCamNode->attachObject(mCamera);
     mCamNode->setPosition(0, 0, 25);
-    mCamNode->lookAt(Ogre::Vector3(0, 0, 0), Node::TS_LOCAL);
+    mCamNode->lookAt(Ogre::Vector3(0, 0, 0), Node::TS_WORLD);
 
     // and tell it to render into the main window
     Ogre::Viewport* viewport = getRenderWindow()->addViewport(mCamera);
@@ -250,8 +273,6 @@ int main(int argc, char** argv)
 
     return 0;
 }
-
-
 
 
 
