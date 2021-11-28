@@ -9,6 +9,7 @@
 #include <OgreCompositorManager.h>
 #include <iostream>
 #include "Platform.h"
+#include "Doodle.h"
 
 
 using namespace Ogre;
@@ -44,7 +45,6 @@ public:
         _camNode->pitch(Ogre::Radian(rotY * _mousespeed * evt.timeSinceLastFrame));
         rotX = 0.0f;
         rotY = 0.0f;*/
-
         _sceneNode->translate(translate * evt.timeSinceLastFrame);
         translate = Ogre::Vector3(0, 0, 0);
 
@@ -75,6 +75,7 @@ private:
     Camera* mCamera;
     SceneNode* mCamNode;
     Platform* plaform [9];
+    Doodle* doodle;
     
 
     bool _keepRunning;
@@ -158,22 +159,19 @@ void Game::createScene()
 
 
     SinbadNode = mScnMgr->getRootSceneNode()->createChildSceneNode("Node1");
-    Ogre::Entity* ent = mScnMgr->createEntity("Entity1", "Sinbad.mesh");
-    //ent->setMaterial(Ogre::MaterialManager::getSingleton().getByName("MyMaterial18"));
-    SinbadNode->attachObject(ent);
-
-
+    //Spawning doodle
+    doodle = new Doodle(mScnMgr, SinbadNode);
+    
+    //Spawning Platforms
     for (int i = 0; i < 9; i++)
-    {
-        
+    {   
         if (i == 0) {
             plaform[i] = new Platform(mScnMgr, SinbadNode, Ogre::Vector3(0.0f, -10.0f, 0.0f), std::to_string(i) ); 
         }
         else
         {
             plaform[i] = new Platform(mScnMgr, SinbadNode, plaform[i -1]->GetPosition(), std::to_string(i));
-        }
-        
+        }   
     }
     
     

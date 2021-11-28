@@ -14,7 +14,9 @@ public:
 
 
 private:
-
+	SceneManager* mSceneManager;
+	SceneNode* mSceneNode;
+	Entity* mEntity;
 
 };
 

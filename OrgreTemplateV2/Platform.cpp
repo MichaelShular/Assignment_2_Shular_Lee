@@ -11,9 +11,10 @@ Platform::Platform(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector
     mSceneNode = mSceneManager->createSceneNode("platform" + id);
     mSceneNode->attachObject(mEntity);
     mSceneManager->getRootSceneNode()->addChild(mSceneNode);
+    
+    //finding spawn location 
     SpawnPos = setPlatformLevel(lastPlatformPosition);
     mSceneNode->setPosition(SpawnPos);
-    
     
     mSceneNode->setScale(0.02f, 0.005f, 0.05f);
 }
