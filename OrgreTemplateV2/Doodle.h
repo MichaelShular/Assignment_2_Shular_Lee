@@ -15,6 +15,9 @@ public:
 	bool getIsFalling();
 	void Update();
 	Ogre::Vector3 GetPosition();
+	bool showReset;
+	void resetPosition();
+
 
 private:
 	SceneManager* mSceneManager;
@@ -22,6 +25,7 @@ private:
 	Entity* mEntity;
 	bool isFalling;
 	int counter;
+	Ogre::Vector3 spawnLocation;
 };
 
 

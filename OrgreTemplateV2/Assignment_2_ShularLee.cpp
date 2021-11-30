@@ -12,6 +12,8 @@
 #include "Doodle.h"
 #include "Physics.h"
 #include <time.h>
+#include "UI.h"
+#include "OgreApplicationContext.h"
 
 
 using namespace Ogre;
@@ -79,6 +81,10 @@ private:
     Platform* plaform [9];
     Doodle* doodle;
     Physics gamePhysics;
+    UI* UIElements;
+    OgreBites::TrayListener myTrayListener;
+    OgreBites::TrayManager* mTrayMgr;
+    OgreBites::TrayManager* mButtonTrayMgr;
 
     bool _keepRunning;
 public:
@@ -92,6 +98,7 @@ public:
     bool mouseMoved(const MouseMotionEvent& e);
     void createFrameListener();
     void renderOneFrame();
+    void createTrayListener();
     bool keepRunning();
     Ogre::SceneNode* SinbadNode;
 };
@@ -120,6 +127,7 @@ void Game::setup()
     shadergen->addSceneManager(mScnMgr);
     createCamera();
     createScene();
+    createTrayListener();
     createFrameListener();
 }
 
@@ -244,11 +252,36 @@ void Game::createFrameListener()
 
 }
 
+/// Used to initialize the UI class and create all trays in the scene.
+void Game::createTrayListener()
+{
+    //Adding tray for lables
+    mTrayMgr = new OgreBites::TrayManager("InterfaceName", getRenderWindow());
+    mScnMgr->addRenderQueueListener(getOverlaySystem());
+    addInputListener(mTrayMgr);
+    //Adding tray for buttons
+    mButtonTrayMgr = new OgreBites::TrayManager("ButtonInterface", getRenderWindow());
+    mScnMgr->addRenderQueueListener(getOverlaySystem());
+    addInputListener(mButtonTrayMgr);
+    //creating UI class
+    UIElements = new UI(mTrayMgr, mButtonTrayMgr);
+}
+
 void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
     doodle->Update();
     mRoot->renderOneFrame();
+    
+    if (doodle->showReset == true) {
+        UIElements->showResetButton();
+        if (UIElements->getReset() == true) {
+            UIElements->hideResetButton();
+            doodle->resetPosition();
+            //reset camra position
+            
+        }
+    }
     
     if (doodle->getIsFalling()) {
         for (int i = 0; i < 9; i++)
@@ -258,6 +291,8 @@ void Game::renderOneFrame()
             }
         }
     }
+
+    
 }
 
 bool Game::keepRunning()

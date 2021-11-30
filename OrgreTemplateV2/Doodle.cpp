@@ -17,10 +17,11 @@ Doodle::Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 sp
 
 
     mSceneNode->setPosition(Ogre::Vector3(spawnPosition.x, spawnPosition.y + 1, spawnPosition.z));
-
+    spawnLocation = spawnPosition;
     mSceneNode->setScale(0.1f, 0.1f, 0.1f);
     counter = 0;
     isFalling = true;
+    showReset = false;
 }
 
 AxisAlignedBox Doodle::GetWorldAABB()
@@ -41,6 +42,12 @@ bool Doodle::getIsFalling()
 Ogre::Vector3 Doodle::GetPosition()
 {
     return mSceneNode->getPosition();
+}
+
+void Doodle::resetPosition()
+{
+    mSceneNode->setPosition(Ogre::Vector3(spawnLocation.x, spawnLocation.y + 1, spawnLocation.z));
+    showReset = false;
 }
 
 
@@ -69,6 +76,11 @@ void Doodle::Update()
         }
         mSceneNode->setPosition((GetPosition().x + sign) * -1, GetPosition().y, GetPosition().z);
     }
+
+    if (GetPosition().y > 10 || GetPosition().y < - 14) {
+        showReset = true;
+    }
+
 }
 
 
