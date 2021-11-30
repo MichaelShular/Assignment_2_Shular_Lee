@@ -11,6 +11,7 @@
 #include "Platform.h"
 #include "Doodle.h"
 #include "Physics.h"
+#include <time.h>
 
 
 using namespace Ogre;
@@ -124,7 +125,9 @@ void Game::setup()
 
 void Game::createScene()
 {
-
+    //Needed to generate a random seed
+    srand(time(NULL));
+    
     // -- tutorial section start --
     //! [turnlights]
     mScnMgr->setAmbientLight(ColourValue(0.5, 0.5, 0.5));
@@ -160,8 +163,7 @@ void Game::createScene()
 
 
     SinbadNode = mScnMgr->getRootSceneNode()->createChildSceneNode("Node1");
-    //Spawning doodle
-    doodle = new Doodle(mScnMgr, SinbadNode);
+    
     
     //Spawning Platforms
     for (int i = 0; i < 9; i++)
@@ -174,7 +176,8 @@ void Game::createScene()
             plaform[i] = new Platform(mScnMgr, SinbadNode, plaform[i -1]->GetPosition(), std::to_string(i));
         }   
     }
-    
+    //Spawning doodle
+    doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
     
 
 }
@@ -244,8 +247,9 @@ void Game::createFrameListener()
 void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
-    mRoot->renderOneFrame();
     doodle->Update();
+    mRoot->renderOneFrame();
+    
     if (doodle->getIsFalling()) {
         for (int i = 0; i < 9; i++)
         {
@@ -268,6 +272,7 @@ int main(int argc, char** argv)
     {
         Game app;
         app.initApp();
+
         //app.getRoot()->startRendering();
         while (app.keepRunning())
         {

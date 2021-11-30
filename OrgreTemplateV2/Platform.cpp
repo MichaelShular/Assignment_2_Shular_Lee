@@ -1,5 +1,4 @@
 #include "Platform.h"
-
 #include <iostream>
 
 Platform::Platform(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 lastPlatformPosition, String id)
@@ -21,9 +20,12 @@ Platform::Platform(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector
 
 Ogre::Vector3 Platform::setPlatformLevel(Ogre::Vector3 lastPlatformPosition)
 {
+    
     float xPos, yPos;
     xPos =  Ogre::Math::RangeRandom(-14, 14);
+    //xPos = (rand() + 5);
     yPos = lastPlatformPosition.y + Ogre::Math::RangeRandom(0, 3);
+    //yPos = 1;
     return Ogre::Vector3(xPos, yPos, 0.0);
 }
 

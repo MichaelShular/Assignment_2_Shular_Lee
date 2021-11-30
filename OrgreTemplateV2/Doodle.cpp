@@ -1,6 +1,6 @@
 #include "Doodle.h"
 
-Doodle::Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode)
+Doodle::Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 spawnPosition)
 {
     this->mSceneManager = scMgr;
     mSceneNode = SceneNode;
@@ -15,7 +15,8 @@ Doodle::Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode)
     //ent->setMaterial(Ogre::MaterialManager::getSingleton().getByName("MyMaterial18"));
     mSceneNode->attachObject(ent);
 
-    mSceneNode->setPosition(Ogre::Vector3(0.0, 1, 0.0));
+
+    mSceneNode->setPosition(Ogre::Vector3(spawnPosition.x, spawnPosition.y + 1, spawnPosition.z));
 
     mSceneNode->setScale(0.1f, 0.1f, 0.1f);
     counter = 0;
@@ -37,8 +38,17 @@ bool Doodle::getIsFalling()
     return isFalling;
 }
 
+Ogre::Vector3 Doodle::GetPosition()
+{
+    return mSceneNode->getPosition();
+}
+
+
 void Doodle::Update()
 {
+    
+
+
     if (isFalling) {
         mSceneNode->translate(Vector3(0.0, -0.05, 0));
     }
@@ -51,7 +61,14 @@ void Doodle::Update()
             counter = 0;
         }
     }
-
+    //Used to change doodle to other side
+    if (GetPosition().x > 14 || GetPosition().x < -14) {
+        int sign = 1;
+        if (GetPosition().x > 14) {
+            sign = -1;
+        }
+        mSceneNode->setPosition((GetPosition().x + sign) * -1, GetPosition().y, GetPosition().z);
+    }
 }
 
 
