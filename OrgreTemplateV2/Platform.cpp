@@ -32,3 +32,14 @@ Ogre::Vector3 Platform::GetPosition()
     return mSceneNode->getPosition();
 }
 
+void Platform::MoveRight()
+{
+
+    if (mSceneNode->getPosition().x < 65 - 10)
+        mSceneNode->translate(Vector3(0.9, 0.0, 0));
+}
+
+AxisAlignedBox Platform::GetWorldAABB()
+{
+    return mSceneNode->_getWorldAABB();
+}

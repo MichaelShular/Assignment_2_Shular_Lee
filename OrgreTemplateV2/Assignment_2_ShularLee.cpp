@@ -10,6 +10,7 @@
 #include <iostream>
 #include "Platform.h"
 #include "Doodle.h"
+#include "Physics.h"
 
 
 using namespace Ogre;
@@ -76,7 +77,7 @@ private:
     SceneNode* mCamNode;
     Platform* plaform [9];
     Doodle* doodle;
-    
+    Physics gamePhysics;
 
     bool _keepRunning;
 public:
@@ -215,16 +216,17 @@ bool Game::keyPressed(const KeyboardEvent& evt)
         _keepRunning = false;
         break;
     case 'w':
-        translate = Ogre::Vector3(0, 10, 0);
+        translate = Ogre::Vector3(0, 15, 0);
         break;
     case 's':
-        translate = Ogre::Vector3(0, -10, 0);
+        translate = Ogre::Vector3(0, -15, 0);
         break;
     case 'a':
         translate = Ogre::Vector3(-10, 0, 0);
         break;
     case 'd':
         translate = Ogre::Vector3(10, 0, 0);
+        
         break;
     default:
         break;
@@ -236,12 +238,22 @@ void Game::createFrameListener()
 {
     Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode);
     mRoot->addFrameListener(FrameListener);
+
 }
 
 void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
     mRoot->renderOneFrame();
+    doodle->Update();
+    if (doodle->getIsFalling()) {
+        for (int i = 0; i < 9; i++)
+        {
+            if (gamePhysics.checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
+                doodle->setIsFalling(false);
+            }
+        }
+    }
 }
 
 bool Game::keepRunning()

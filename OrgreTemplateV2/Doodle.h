@@ -10,14 +10,17 @@ class Doodle {
 public:
 	Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode);
 	~Doodle() {};
-
-
+	AxisAlignedBox GetWorldAABB();
+	void setIsFalling(bool a);
+	bool getIsFalling();
+	void Update();
 
 private:
 	SceneManager* mSceneManager;
 	SceneNode* mSceneNode;
 	Entity* mEntity;
-
+	bool isFalling;
+	int counter;
 };
 
 

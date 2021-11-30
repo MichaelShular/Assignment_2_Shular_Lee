@@ -12,7 +12,8 @@ public:
 	~Platform() {};
 
 	Ogre::Vector3 GetPosition();
-
+	void MoveRight();
+	AxisAlignedBox GetWorldAABB();
 private:
 	Ogre::Vector3 setPlatformLevel(Ogre::Vector3 lastPlatformPosition);
 	Ogre::Vector3 SpawnPos;

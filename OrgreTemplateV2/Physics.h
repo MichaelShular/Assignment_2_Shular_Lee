@@ -15,7 +15,7 @@ public:
 	Physics();
 	~Physics() {};
 
-
+	bool checkAAABB(AxisAlignedBox a, AxisAlignedBox b);
 
 private:
 
