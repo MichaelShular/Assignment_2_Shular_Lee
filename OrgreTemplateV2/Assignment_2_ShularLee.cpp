@@ -80,7 +80,7 @@ private:
     SceneNode* mCamNode;
     Platform* plaform [9];
     Doodle* doodle;
-    Physics gamePhysics;
+    Physics* gamePhysics;
     UI* UIElements;
     OgreBites::TrayListener myTrayListener;
     OgreBites::TrayManager* mTrayMgr;
@@ -125,6 +125,10 @@ void Game::setup()
     // register our scene with the RTSS
     RTShader::ShaderGenerator* shadergen = RTShader::ShaderGenerator::getSingletonPtr();
     shadergen->addSceneManager(mScnMgr);
+    
+    //adding physics 
+    gamePhysics = Physics::GetInstance();
+    
     createCamera();
     createScene();
     createTrayListener();
@@ -187,7 +191,7 @@ void Game::createScene()
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
     
-
+    gamePhysics->setGravity(Vector3(0.0f, -0.1f, 0.0f));
 }
 
 void Game::createCamera()
@@ -270,7 +274,7 @@ void Game::createTrayListener()
 void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
-    doodle->Update();
+    doodle->Update(gamePhysics->getGravity());
     mRoot->renderOneFrame();
     
     if (doodle->showReset == true) {
@@ -286,7 +290,7 @@ void Game::renderOneFrame()
     if (doodle->getIsFalling()) {
         for (int i = 0; i < 9; i++)
         {
-            if (gamePhysics.checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
+            if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
                 doodle->setIsFalling(false);
             }
         }

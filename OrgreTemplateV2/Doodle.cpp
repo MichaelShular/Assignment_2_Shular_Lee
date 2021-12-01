@@ -1,4 +1,5 @@
 #include "Doodle.h"
+#include "Physics.h"
 
 Doodle::Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 spawnPosition)
 {
@@ -22,6 +23,7 @@ Doodle::Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 sp
     counter = 0;
     isFalling = true;
     showReset = false;
+    
 }
 
 AxisAlignedBox Doodle::GetWorldAABB()
@@ -51,13 +53,11 @@ void Doodle::resetPosition()
 }
 
 
-void Doodle::Update()
+void Doodle::Update(Vector3 gravity)
 {
-    
-
 
     if (isFalling) {
-        mSceneNode->translate(Vector3(0.0, -0.05, 0));
+        mSceneNode->translate(gravity);
     }
     else
     {

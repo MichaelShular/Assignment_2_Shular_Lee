@@ -3,6 +3,7 @@
 #define DOODLE_H
 
 #include "Ogre.h"
+#include "Physics.h"
 
 using namespace Ogre;
 /// This class is used to create and control aspects the object ball.
@@ -13,7 +14,7 @@ public:
 	AxisAlignedBox GetWorldAABB();
 	void setIsFalling(bool a);
 	bool getIsFalling();
-	void Update();
+	void Update(Vector3 gravity);
 	Ogre::Vector3 GetPosition();
 	bool showReset;
 	void resetPosition();
