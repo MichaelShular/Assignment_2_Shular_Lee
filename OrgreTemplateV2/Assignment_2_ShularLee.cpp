@@ -71,11 +71,7 @@ class Game
 private:
     SceneManager* mScnMgr;
     Root* mRoot;
-    Camera* mCamera;
-    SceneNode* mCamNode;
-    Platform* plaform [9];
-    Doodle* doodle;
-    
+    Camera* mCamera;   
 
     bool _keepRunning;
 public:

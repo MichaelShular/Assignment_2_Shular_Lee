@@ -8,11 +8,11 @@ class Game : public Ogre::FrameListener
 {
 
 protected:
-    Game(Root* root, SceneManager* scn);
+    Game(Root* root, SceneManager* scn, Camera* cam);
     static Game* application;
 public:
     static Game* _game;
-    static Game* GetInstance(Root* root, SceneManager* scn);
+    static Game* GetInstance(Root* root, SceneManager* scn, Camera* cam);
 private:
     Game(Game& other) = delete;
     void operator=(const Game&) = delete;

@@ -8,6 +8,8 @@
 #include "OgreRTShaderSystem.h"
 #include <OgreCompositorManager.h>
 #include <iostream>
+#include "Platform.h"
+#include "Doodle.h"
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -17,30 +19,45 @@ class Application
 	,public InputListener
 {
 protected:
-	Application();
+	Application() : ApplicationContext("Assignment_2_ShularLee") {}
 	static Application* app;
+
 public:
-	int Run();
-	static Application* GetInstance();
-	bool& Running();
-private:
-	Application(Application& other) = delete;	
 	void operator=(const Application&) = delete;
-	bool m_running;
-	Root* mRoot;
-	Camera* mCamera;
-	SceneManager* mSceneMgr;
-	RenderWindow* mWindow;
-	/*Ogre::String mResourcesCfg;
-	Ogre::String mPluginsCfg;*/
-protected:	
-	bool Init();
+	
+
+	static Application* GetInstance() 
+	{
+		if (app == nullptr) {
+			app = new Application;
+		}
+		return app;
+	}
+	
+	int Run();
+	
+	bool& Running();
+	void setup();
 	void Wake();
 	void Sleep();
 	void HandleEvents();
 	void Update();
 	void Render();
 	void Clean();
+private:
+	Ogre::SceneNode* SinbadNode;
+	bool m_running;
+	Root* mRoot;
+	Camera* mCamera;
+	SceneManager* mScnMgr;
+	RenderWindow* mWindow; 	
+	SceneNode* mCamNode;
+	Platform* plaform[9];
+	Doodle* doodle;
+	/*Ogre::String mResourcesCfg;
+	Ogre::String mPluginsCfg;*/
+private:
+	
 
 };
 

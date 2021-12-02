@@ -10,7 +10,7 @@ float rotY = 0.0f;
 float _movementspeed;
 Game* Game::_game = nullptr;
 
-class ExampleFrameListener : public Ogre::FrameListener
+class ExampleFrameListener : public Ogre::FrameListener, public InputListener
 {
 private:
     Ogre::SceneNode* _sceneNode;
@@ -57,8 +57,7 @@ public:
 
 
 void Game::setup()
-{
-   
+{       
     createCamera();
     createScene();
     createFrameListener();
@@ -192,16 +191,17 @@ void Game::renderOneFrame()
     mRoot->renderOneFrame();
 }
 
-Game::Game(Root* root, SceneManager* scn)
+Game::Game(Root* root, SceneManager* scn ,Camera* cam)
 {
     mRoot = root;
     mScnMgr = scn;
+    mCamera = cam;
 }
 
-Game* Game::GetInstance(Root* root, SceneManager* scn)
+Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
 {
     if (_game == nullptr) {
-        _game = new Game(root, scn);
+        _game = new Game(root, scn, cam);
     }
     return _game;
 }
