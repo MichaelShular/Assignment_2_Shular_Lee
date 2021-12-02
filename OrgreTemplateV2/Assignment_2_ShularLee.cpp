@@ -17,7 +17,6 @@
 #include "Input.h"
 #include "audio.h"
 
-
 using namespace Ogre;
 using namespace OgreBites;
 
@@ -45,7 +44,7 @@ public:
 
     bool frameStarted(const Ogre::FrameEvent& evt)
     {
-        //std::cout << "Frame started" << std::endl;
+       //std::cout << "Frame started" << std::endl;
 
        /* _camNode->yaw(Ogre::Radian(rotX * _mousespeed * evt.timeSinceLastFrame));
         _camNode->pitch(Ogre::Radian(rotY * _mousespeed * evt.timeSinceLastFrame));
@@ -78,14 +77,7 @@ class Game
 private:
     SceneManager* mScnMgr;
     Root* mRoot;
-    Camera* mCamera;
-    SceneNode* mCamNode;
-    Platform* plaform [9];
-    Doodle* doodle;
-    Physics* gamePhysics;
-    UI* UIElements;
-    Input* gameInput;
-    Audio* gameSound;
+    Camera* mCamera;   
 
     OgreBites::TrayListener myTrayListener;
     OgreBites::TrayManager* mTrayMgr;
@@ -105,6 +97,7 @@ public:
     void renderOneFrame();
     void createTrayListener();
     bool keepRunning();
+    void Update();
     Ogre::SceneNode* SinbadNode;
 };
 
@@ -180,7 +173,7 @@ void Game::createScene()
     //! [lightpos]
     lightNode->setPosition(0, 4, 10);
     //! [lightpos]
-
+    
 
     SinbadNode = mScnMgr->getRootSceneNode()->createChildSceneNode("Node1");
     
@@ -243,16 +236,9 @@ void Game::createFrameListener()
     mRoot->addFrameListener(FrameListener);
 }
 
-/// Used to initialize the UI class and create all trays in the scene.
-void Game::createTrayListener()
+void Game::Update()
 {
-    
-    addInputListener(UIElements->addedTrayMgr("InterfaceName", true));
-    UIElements->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
-    UIElements->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
 
-    addInputListener(UIElements->addedTrayMgr("ButtonInterface", false));
-    UIElements->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
 }
 
 void Game::renderOneFrame()
