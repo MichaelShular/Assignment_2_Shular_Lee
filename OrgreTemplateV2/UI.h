@@ -7,25 +7,39 @@
 
 using namespace Ogre;
 using namespace OgreBites;
-/// Is a class that for the creation and management of UI. 
-/// 
-/// This class creates all UI for in the scene with in the scene in the default constructor and
-/// uses its frunctions to control aspect text or visibility. 
+
 class UI
 {
-private:
-    TrayManager* mTrayMgr;
-    TrayManager* mButtonTrayMgr;
-    OgreBites::Label* mTime;
-    OgreBites::Button* mReset;
-public:
-    UI(TrayManager* TrayMgr, TrayManager* ButtonTrayMgr);
-    /// UI destructor.
+protected:
+    UI(Ogre::RenderWindow* window, SceneManager* scnMgr, RenderQueueListener* newListener);
     virtual ~UI() {};
-    void setTime(String a);
-    void showResetButton();
-    void hideResetButton();
-    bool getReset();
+    static UI* ui_;
+    
+public:    
+    UI(UI& other) = delete;
+    void operator=(const UI&) = delete;
+    static UI* GetInstance(Ogre::RenderWindow* window, SceneManager* scnMgr, RenderQueueListener* newListener);
+
+    TrayManager* addedTrayMgr(std::string name, bool isVisible);
+
+    void addedFrameStatsToTray(int whichTray, TrayLocation position, bool showAllStats);
+    void addedLabelToTary(int whichTray, TrayLocation position, std::string name, std::string caption, float size);
+    void addedButtonToTray(int whichTray, TrayLocation position, std::string name, std::string caption, float size);
+
+    void setCaptionForLabel(int whichLabel, String newCaption);
+
+    void setTrayVisibility(int whichLabel, bool isVisible);
+    bool getIsButtonPressed(int whichButton);
+
+private:
+    std::vector<TrayManager*> arrayTrayMgr;
+    Ogre::RenderWindow* mWindow; 
+    SceneManager* mScnMgr; 
+    RenderQueueListener* mNewListener;
+    
+    std::vector<Label*> arrayLabel;
+    std::vector<Button*> arrayButton;
+
 };
 
 #endif 

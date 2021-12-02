@@ -128,6 +128,7 @@ void Game::setup()
     
     //adding physics 
     gamePhysics = Physics::GetInstance();
+    UIElements = UI::GetInstance(getRenderWindow(), mScnMgr, getOverlaySystem());
     
     createCamera();
     createScene();
@@ -254,21 +255,31 @@ void Game::createFrameListener()
     Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode);
     mRoot->addFrameListener(FrameListener);
 
+
 }
 
 /// Used to initialize the UI class and create all trays in the scene.
 void Game::createTrayListener()
 {
+    
+    addInputListener(UIElements->addedTrayMgr("InterfaceName", true));
+    UIElements->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
+    UIElements->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
+
+    addInputListener(UIElements->addedTrayMgr("ButtonInterface", false));
+    UIElements->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
+
+
     //Adding tray for lables
-    mTrayMgr = new OgreBites::TrayManager("InterfaceName", getRenderWindow());
-    mScnMgr->addRenderQueueListener(getOverlaySystem());
-    addInputListener(mTrayMgr);
-    //Adding tray for buttons
-    mButtonTrayMgr = new OgreBites::TrayManager("ButtonInterface", getRenderWindow());
-    mScnMgr->addRenderQueueListener(getOverlaySystem());
-    addInputListener(mButtonTrayMgr);
+    //mTrayMgr = new OgreBites::TrayManager("InterfaceName", getRenderWindow());
+    //mScnMgr->addRenderQueueListener(getOverlaySystem());
+    //addInputListener(mTrayMgr);
+    ////Adding tray for buttons
+    //mButtonTrayMgr = new OgreBites::TrayManager("ButtonInterface", getRenderWindow());
+    //mScnMgr->addRenderQueueListener(getOverlaySystem());
+    //addInputListener(mButtonTrayMgr);
     //creating UI class
-    UIElements = new UI(mTrayMgr, mButtonTrayMgr);
+    
 }
 
 void Game::renderOneFrame()
@@ -277,15 +288,14 @@ void Game::renderOneFrame()
     doodle->Update(gamePhysics->getGravity());
     mRoot->renderOneFrame();
     
-    if (doodle->showReset == true) {
-        UIElements->showResetButton();
-        if (UIElements->getReset() == true) {
-            UIElements->hideResetButton();
-            doodle->resetPosition();
-            //reset camra position
-            
-        }
-    }
+    //if (doodle->showReset == true) {
+    //    UIElements->showResetButton();
+    //    if (UIElements->getReset() == true) {
+    //        UIElements->hideResetButton();
+    //        doodle->resetPosition();
+    //        //reset camra position
+    //    }
+    //}
     
     if (doodle->getIsFalling()) {
         for (int i = 0; i < 9; i++)
