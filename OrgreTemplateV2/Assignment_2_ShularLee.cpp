@@ -14,6 +14,7 @@
 #include <time.h>
 #include "UI.h"
 #include "OgreApplicationContext.h"
+#include "Input.h"
 
 
 using namespace Ogre;
@@ -82,6 +83,7 @@ private:
     Doodle* doodle;
     Physics* gamePhysics;
     UI* UIElements;
+    Input* gameInput;
     OgreBites::TrayListener myTrayListener;
     OgreBites::TrayManager* mTrayMgr;
     OgreBites::TrayManager* mButtonTrayMgr;
@@ -129,6 +131,7 @@ void Game::setup()
     //adding physics 
     gamePhysics = Physics::GetInstance();
     UIElements = UI::GetInstance(getRenderWindow(), mScnMgr, getOverlaySystem());
+    gameInput = Input::GetInstance(mRoot);
     
     createCamera();
     createScene();
@@ -225,37 +228,14 @@ bool Game::mouseMoved(const MouseMotionEvent& evt)
 
 bool Game::keyPressed(const KeyboardEvent& evt)
 {
-    switch (evt.keysym.sym)
-    {
-    case SDLK_ESCAPE:
-        getRoot()->queueEndRendering();
-        _keepRunning = false;
-        break;
-    case 'w':
-        translate = Ogre::Vector3(0, 15, 0);
-        break;
-    case 's':
-        translate = Ogre::Vector3(0, -15, 0);
-        break;
-    case 'a':
-        translate = Ogre::Vector3(-10, 0, 0);
-        break;
-    case 'd':
-        translate = Ogre::Vector3(10, 0, 0);
-        
-        break;
-    default:
-        break;
-    }
-    return true;
+   gameInput->Update(evt);
+   return true;
 }
 
 void Game::createFrameListener()
 {
     Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode);
     mRoot->addFrameListener(FrameListener);
-
-
 }
 
 /// Used to initialize the UI class and create all trays in the scene.
@@ -268,18 +248,6 @@ void Game::createTrayListener()
 
     addInputListener(UIElements->addedTrayMgr("ButtonInterface", false));
     UIElements->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
-
-
-    //Adding tray for lables
-    //mTrayMgr = new OgreBites::TrayManager("InterfaceName", getRenderWindow());
-    //mScnMgr->addRenderQueueListener(getOverlaySystem());
-    //addInputListener(mTrayMgr);
-    ////Adding tray for buttons
-    //mButtonTrayMgr = new OgreBites::TrayManager("ButtonInterface", getRenderWindow());
-    //mScnMgr->addRenderQueueListener(getOverlaySystem());
-    //addInputListener(mButtonTrayMgr);
-    //creating UI class
-    
 }
 
 void Game::renderOneFrame()
@@ -288,6 +256,10 @@ void Game::renderOneFrame()
     doodle->Update(gamePhysics->getGravity());
     mRoot->renderOneFrame();
     
+    if (gameInput->checkIfKeyBeingPressed(OgreBites::SDLK_ESCAPE)) {
+        mRoot->queueEndRendering();
+        _keepRunning = false;
+    }
     //if (doodle->showReset == true) {
     //    UIElements->showResetButton();
     //    if (UIElements->getReset() == true) {
