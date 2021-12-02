@@ -102,8 +102,7 @@ void Game::createScene()
 
 
     SinbadNode = mScnMgr->getRootSceneNode()->createChildSceneNode("Node1");
-    //Spawning doodle
-    doodle = new Doodle(mScnMgr, SinbadNode);
+    
 
     //Spawning Platforms
     for (int i = 0; i < 9; i++)
@@ -116,7 +115,8 @@ void Game::createScene()
             plaform[i] = new Platform(mScnMgr, SinbadNode, plaform[i - 1]->GetPosition(), std::to_string(i));
         }
     }
-
+    //Spawning doodle
+    doodle = new Doodle(mScnMgr, SinbadNode, Vector3(0,0,0));
 
 
 }

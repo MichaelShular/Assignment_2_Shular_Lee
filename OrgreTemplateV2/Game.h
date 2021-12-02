@@ -9,7 +9,6 @@
 
 class Game : public Ogre::FrameListener, public InputListener
 {
-
 protected:
     Game(Root* root, SceneManager* scn, Camera* cam);
     static Game* application;
