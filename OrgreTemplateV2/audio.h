@@ -23,7 +23,11 @@ public:
     void operator=(const Audio&) = delete;
     static Audio* GetInstance();
 
-    void playSound();
+    void playSFX(const char *filepath);
+    void playBGM(const char *filepath);
+    void setVolume(float amount);
+    void stopAllSound();
+
 
 private:
     ISoundEngine* engine; 

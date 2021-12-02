@@ -200,7 +200,7 @@ void Game::createScene()
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
     
     gamePhysics->setGravity(Vector3(0.0f, -0.1f, 0.0f));
-    gameSound->playSound();
+    gameSound->playBGM("../media/ophelia.mp3");
 }
 
 void Game::createCamera()
@@ -259,6 +259,11 @@ void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
     doodle->Update(gamePhysics->getGravity());
+
+    if (gameInput->checkIfKeyBeingPressed('a')) {
+        //gameSound->playSFX("../media/jump.wav");
+    }
+
     mRoot->renderOneFrame();
     
     if (gameInput->checkIfKeyBeingPressed(OgreBites::SDLK_ESCAPE)) {

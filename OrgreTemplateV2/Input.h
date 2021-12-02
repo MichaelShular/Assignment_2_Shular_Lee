@@ -23,6 +23,8 @@ public:
 	bool checkIfKeyBeingPressed(char keyType);
 	bool checkIfKeyBeingPressed(int keyType);
 
+	void reset();
+
 private:
 	Root* mRoot;
 	OgreBites::KeyboardEvent currentKey;

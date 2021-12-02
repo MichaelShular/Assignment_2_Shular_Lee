@@ -1,4 +1,5 @@
 #include "audio.h"
+#include <iostream>
 
 Audio* Audio::audio_ = nullptr;;
 
@@ -15,12 +16,25 @@ Audio* Audio::GetInstance()
     return audio_;
 }
 
-void Audio::playSound()
+void Audio::playSFX(const char *filepath)
 {
-    engine->play2D("../media/getout.ogg", true);
-    engine->setSoundVolume(0.5);
+    engine->play2D(filepath);
 }
 
-//control volume
-//add play sound clip with string parameters 
+void Audio::playBGM(const char* filepath)
+{
+    engine->play2D(filepath, true);
+}
+
+void Audio::setVolume(float amount)
+{
+    engine->setSoundVolume(amount);
+}
+
+void Audio::stopAllSound()
+{
+    engine->stopAllSounds();
+}
+
+
 
