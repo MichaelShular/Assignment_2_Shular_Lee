@@ -11,7 +11,6 @@
 #include "Platform.h"
 #include "Doodle.h"
 
-
 using namespace Ogre;
 using namespace OgreBites;
 
@@ -39,7 +38,7 @@ public:
 
     bool frameStarted(const Ogre::FrameEvent& evt)
     {
-        //std::cout << "Frame started" << std::endl;
+       //std::cout << "Frame started" << std::endl;
 
        /* _camNode->yaw(Ogre::Radian(rotX * _mousespeed * evt.timeSinceLastFrame));
         _camNode->pitch(Ogre::Radian(rotY * _mousespeed * evt.timeSinceLastFrame));
@@ -91,6 +90,7 @@ public:
     void createFrameListener();
     void renderOneFrame();
     bool keepRunning();
+    void Update();
     Ogre::SceneNode* SinbadNode;
 };
 
@@ -156,7 +156,7 @@ void Game::createScene()
     //! [lightpos]
     lightNode->setPosition(0, 4, 10);
     //! [lightpos]
-
+    
 
     SinbadNode = mScnMgr->getRootSceneNode()->createChildSceneNode("Node1");
     //Spawning doodle
@@ -236,6 +236,11 @@ void Game::createFrameListener()
 {
     Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode);
     mRoot->addFrameListener(FrameListener);
+}
+
+void Game::Update()
+{
+
 }
 
 void Game::renderOneFrame()
