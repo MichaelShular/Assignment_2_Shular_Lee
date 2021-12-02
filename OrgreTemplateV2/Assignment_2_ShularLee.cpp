@@ -15,6 +15,7 @@
 #include "UI.h"
 #include "OgreApplicationContext.h"
 #include "Input.h"
+#include "audio.h"
 
 
 using namespace Ogre;
@@ -84,6 +85,8 @@ private:
     Physics* gamePhysics;
     UI* UIElements;
     Input* gameInput;
+    Audio* gameSound;
+
     OgreBites::TrayListener myTrayListener;
     OgreBites::TrayManager* mTrayMgr;
     OgreBites::TrayManager* mButtonTrayMgr;
@@ -132,7 +135,8 @@ void Game::setup()
     gamePhysics = Physics::GetInstance();
     UIElements = UI::GetInstance(getRenderWindow(), mScnMgr, getOverlaySystem());
     gameInput = Input::GetInstance(mRoot);
-    
+    gameSound = Audio::GetInstance();
+
     createCamera();
     createScene();
     createTrayListener();
@@ -196,6 +200,7 @@ void Game::createScene()
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
     
     gamePhysics->setGravity(Vector3(0.0f, -0.1f, 0.0f));
+    gameSound->playSound();
 }
 
 void Game::createCamera()
@@ -268,7 +273,6 @@ void Game::renderOneFrame()
     //        //reset camra position
     //    }
     //}
-    
     if (doodle->getIsFalling()) {
         for (int i = 0; i < 9; i++)
         {
