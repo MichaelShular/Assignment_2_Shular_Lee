@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "Game.h"
+
 using namespace std;
 using namespace Ogre;
 using namespace OgreBites;
@@ -9,8 +10,7 @@ Application* Application::app = nullptr;;
 void Application::setup()
 {    
     ApplicationContext::setup();    
-    addInputListener(this);
-
+    
     // get a pointer to the already created root
     mRoot = getRoot();
     mScnMgr = mRoot->createSceneManager();
@@ -26,7 +26,7 @@ void Application::setup()
 
 
 int Application::Run()
-{   
+{       
     while (m_running)
     {
         Wake();
@@ -57,10 +57,11 @@ void Application::HandleEvents()
 {
 }
 
-void Application::Update()
-{
+bool Application::Update()
+{    
     Game* game = Game::GetInstance(mRoot, mScnMgr, mCamera);
-    game->Update();
+    game->renderOneFrame();
+    return true;
 }
 
 void Application::Render()

@@ -58,6 +58,7 @@ public:
 
 void Game::setup()
 {       
+    Application::GetInstance()->addInputListener(this);
     createCamera();
     createScene();
     createFrameListener();
@@ -141,6 +142,8 @@ void Game::createCamera()
     mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
 }
 
+
+
 //bool Game::mouseMoved(const MouseMotionEvent& evt)
 //{
 //    rotX = evt.xrel;
@@ -148,31 +151,31 @@ void Game::createCamera()
 //    return true;
 //}
 //
-//bool Game::keyPressed(const KeyboardEvent& evt)
-//{
-//    switch (evt.keysym.sym)
-//    {
-//    case SDLK_ESCAPE:
-//       
-//        
-//        break;
-//    case 'w':
-//        translate = Ogre::Vector3(0, 10, 0);
-//        break;
-//    case 's':
-//        translate = Ogre::Vector3(0, -10, 0);
-//        break;
-//    case 'a':
-//        translate = Ogre::Vector3(-10, 0, 0);
-//        break;
-//    case 'd':
-//        translate = Ogre::Vector3(10, 0, 0);
-//        break;
-//    default:
-//        break;
-//    }
-//    return true;
-//}
+bool Game::keyPressed(const KeyboardEvent& evt)
+{
+    switch (evt.keysym.sym)
+    {
+    case SDLK_ESCAPE:
+       
+        
+        break;
+    case 'w':
+        translate = Ogre::Vector3(0, 10, 0);
+        break;
+    case 's':
+        translate = Ogre::Vector3(0, -10, 0);
+        break;
+    case 'a':
+        translate = Ogre::Vector3(-10, 0, 0);
+        break;
+    case 'd':
+        translate = Ogre::Vector3(10, 0, 0);
+        break;
+    default:
+        break;
+    }
+    return true;
+}
 
 void Game::createFrameListener()
 {
@@ -180,15 +183,11 @@ void Game::createFrameListener()
     mRoot->addFrameListener(FrameListener);
 }
 
-void Game::Update()
-{
-    cout << "ddd" << endl;
-}
-
 void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
     mRoot->renderOneFrame();
+    translate = Ogre::Vector3(-10, 0, 0);
 }
 
 Game::Game(Root* root, SceneManager* scn ,Camera* cam)

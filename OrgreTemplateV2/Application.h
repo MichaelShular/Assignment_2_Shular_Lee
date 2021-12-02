@@ -16,7 +16,7 @@ using namespace OgreBites;
 
 class Application
 	: public ApplicationContext
-	,public InputListener
+	
 {
 protected:
 	Application() : ApplicationContext("Assignment_2_ShularLee") {}
@@ -34,20 +34,20 @@ public:
 		return app;
 	}
 	
-	int Run();
-	
+	int Run();	
 	bool& Running();
 	void setup();
 	void Wake();
 	void Sleep();
 	void HandleEvents();
-	void Update();
+	bool Update();
 	void Render();
 	void Clean();
 private:
 	Ogre::SceneNode* SinbadNode;
 	bool m_running;
 	Root* mRoot;
+	
 	Camera* mCamera;
 	SceneManager* mScnMgr;
 	RenderWindow* mWindow; 	

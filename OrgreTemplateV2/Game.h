@@ -1,10 +1,13 @@
+#pragma once
+#ifndef _GAME_H_
+#define _GAME_H_
 #include "Ogre.h"
 #include "Application.h"
 #include <iostream>
 #include "Platform.h"
 #include "Doodle.h"
 
-class Game : public Ogre::FrameListener
+class Game : public Ogre::FrameListener, public InputListener
 {
 
 protected:
@@ -27,13 +30,14 @@ public:
     void setup();
     void createScene();
     void createCamera();
-    /*bool keyPressed(const KeyboardEvent& evt);
-    bool mouseMoved(const MouseMotionEvent& e);*/
+    bool keyPressed(const KeyboardEvent& evt);
+    //bool mouseMoved(const MouseMotionEvent& e);*/
     void createFrameListener();
-    void renderOneFrame();
-    bool keepRunning();
-    void Update();
+    void renderOneFrame();   
+    
     
     Ogre::SceneNode* SinbadNode;
    
 };
+
+#endif // _GAME_H_

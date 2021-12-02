@@ -7,7 +7,7 @@ int main(int argc, char** argv)
     {
         Application* a = Application::GetInstance();
         a->initApp();
-        a->getRoot()->startRendering();
+        a->Run();
         a->closeApp();
     }
     catch (const std::exception& e)
