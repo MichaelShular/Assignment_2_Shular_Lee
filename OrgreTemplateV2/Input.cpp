@@ -1,5 +1,6 @@
 #include "Input.h"
 #include "OgreApplicationContext.h"
+#include <iostream>
 
 Input* Input::input_ = nullptr;;
 
@@ -19,11 +20,15 @@ Input* Input::GetInstance(Root* root)
 bool Input::Update(const OgreBites::KeyboardEvent& evt)
 {
     currentKey = evt;
+    currentKeyPtr = &currentKey;
+    std::cout << currentKey.keysym.sym << std::endl;
     return true;
 }
 
 bool Input::checkIfKeyBeingPressed(char keyType)
 {
+    if (currentKeyPtr == nullptr)
+        return false;
     if (currentKey.keysym.sym == keyType) {
         return true;
     }
@@ -35,6 +40,8 @@ bool Input::checkIfKeyBeingPressed(char keyType)
 
 bool Input::checkIfKeyBeingPressed(int keyType)
 {
+    if (currentKeyPtr == nullptr)
+        return false;
     if (currentKey.keysym.sym == keyType) {
         return true;
     }
@@ -46,7 +53,7 @@ bool Input::checkIfKeyBeingPressed(int keyType)
 
 void Input::reset()
 {
-   // currentKey = ;
+    currentKeyPtr = nullptr;
 }
 
 

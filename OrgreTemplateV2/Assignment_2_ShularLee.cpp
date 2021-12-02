@@ -137,6 +137,7 @@ void Game::setup()
     gameInput = Input::GetInstance(mRoot);
     gameSound = Audio::GetInstance();
 
+    gameSound->setVolume(0.2);
     createCamera();
     createScene();
     createTrayListener();
@@ -260,10 +261,6 @@ void Game::renderOneFrame()
     //Ogre::WindowEventUtilities::messagePump();
     doodle->Update(gamePhysics->getGravity());
 
-    if (gameInput->checkIfKeyBeingPressed('a')) {
-        //gameSound->playSFX("../media/jump.wav");
-    }
-
     mRoot->renderOneFrame();
     
     if (gameInput->checkIfKeyBeingPressed(OgreBites::SDLK_ESCAPE)) {
@@ -283,11 +280,12 @@ void Game::renderOneFrame()
         {
             if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
                 doodle->setIsFalling(false);
+                gameSound->playSFX("../media/jump.wav");
             }
         }
     }
 
-    
+   
 }
 
 bool Game::keepRunning()

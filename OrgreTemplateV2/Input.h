@@ -28,6 +28,8 @@ public:
 private:
 	Root* mRoot;
 	OgreBites::KeyboardEvent currentKey;
+	OgreBites::KeyboardEvent* currentKeyPtr;
+
 };
 
 #endif
