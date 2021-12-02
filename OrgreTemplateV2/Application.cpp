@@ -20,7 +20,7 @@ void Application::setup()
     RTShader::ShaderGenerator* shadergen = RTShader::ShaderGenerator::getSingletonPtr();
     shadergen->addSceneManager(mScnMgr);
     Game* game = Game::GetInstance(mRoot, mScnMgr, mCamera);
-    
+    game->setup();
    
 }
 
