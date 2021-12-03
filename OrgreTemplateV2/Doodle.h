@@ -14,11 +14,14 @@ public:
 	AxisAlignedBox GetWorldAABB();
 	void setIsFalling(bool a);
 	bool getIsFalling();
-	void Update(Vector3 gravity);
+	
 	Ogre::Vector3 GetPosition();
-	bool showReset;
 	void resetPosition();
 	bool Goal(float d);
+	void Update(Vector3 gravity);
+	float getApexHeight();
+	
+	bool showReset;
 
 private:
 	SceneManager* mSceneManager;
@@ -27,6 +30,7 @@ private:
 	bool isFalling;
 	int counter;
 	Ogre::Vector3 spawnLocation;
+	float apexHeight;
 };
 
 

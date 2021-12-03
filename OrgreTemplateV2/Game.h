@@ -9,7 +9,7 @@
 #include "Input.h"
 #include "UI.h"
 #include "audio.h"
-
+#include "OgreTimer.h"
 
 class Game : public Ogre::FrameListener, public InputListener
 {
@@ -31,7 +31,12 @@ private:
     Input* gameInput;
     UI* gameUI;
     Audio* gameAudio;
-    
+    Physics* gamePhysics;
+    float mCameraPostionToReach;
+    float mCurrentCameraPostion;
+    Ogre::Timer timer;
+    float mPausedTime;
+
 public:   
     virtual ~Game() { }
     void setup();

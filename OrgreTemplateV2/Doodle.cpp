@@ -59,7 +59,6 @@ bool Doodle::Goal(float d)
     return false;
 }
 
-
 void Doodle::Update(Vector3 gravity)
 {
 
@@ -74,6 +73,7 @@ void Doodle::Update(Vector3 gravity)
         if (counter > 75) {
             isFalling = true;
             counter = 0;
+            apexHeight = GetPosition().y;
         }
     }
     //Used to change doodle to other side
@@ -88,9 +88,11 @@ void Doodle::Update(Vector3 gravity)
     if (GetPosition().y > 10 || GetPosition().y < - 14) {
         showReset = true;
     }
-
 }
 
-
+float Doodle::getApexHeight()
+    {
+        return apexHeight;
+    }
 
 

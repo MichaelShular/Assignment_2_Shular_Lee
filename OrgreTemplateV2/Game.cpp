@@ -68,6 +68,7 @@ void Game::setup()
 {       
     gameUI = UI::GetInstance(Application::GetInstance()->getRenderWindow(), mScnMgr, Application::GetInstance()->getOverlaySystem());
     gameAudio = Audio::GetInstance();
+    gamePhysics = Physics::GetInstance();
 
     // Add Input Listener to Root
     Application::GetInstance()->addInputListener(this);
@@ -133,8 +134,10 @@ void Game::createScene()
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
+    gamePhysics->setGravity(Vector3(0.0f, -0.1f, 0.0f));
+
     gameAudio->playBGM("../media/ophelia.mp3");
-    gameAudio->setVolume(0.2);
+    gameAudio->setVolume(0.2f);
 }
 
 void Game::createCamera()
@@ -156,6 +159,8 @@ void Game::createCamera()
     Ogre::Viewport* viewport = Application::GetInstance()->getRenderWindow()->addViewport(mCamera);
     viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 0.0));
     mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
+
+    mCurrentCameraPostion = mCameraPostionToReach = 0;
 }
 
 bool Game::keyPressed(const KeyboardEvent& evt)
@@ -172,20 +177,59 @@ void Game::createFrameListener()
 
 void Game::renderOneFrame()
 {
-    if (doodle->Goal(plaform[8]->GetPosition().y))
+   
+    
+    mRoot->renderOneFrame();
+    
+    if (doodle->showReset == true) {
+        gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(mPausedTime));
+        gameUI->setTrayVisibility(1, true);
+        if (gameUI->getIsButtonPressed(0) == true) {
+            gameUI->setTrayVisibility(1, false);
+            doodle->resetPosition();
+            timer.reset();
+            return;
+            //reset camra position
+        }
+    }
+    else {
+        if (gameInput->checkIfKeyBeingPressed('a'))
+            translate = Ogre::Vector3(-10, 0, 0);
+        if (gameInput->checkIfKeyBeingPressed('d'))
+            translate = Ogre::Vector3(10, 0, 0);
+        gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(timer.getMilliseconds() / 1000));
+        mPausedTime = timer.getMilliseconds() / 1000; 
+        doodle->Update(gamePhysics->getGravity());
+        mCameraPostionToReach = doodle->getApexHeight();
+    }
+   
+    /*if (doodle->Goal(plaform[8]->GetPosition().y))
     {
         Application::GetInstance()->Running() = false;
+    }*/
+
+    //Game Collision
+    if (doodle->getIsFalling()) {
+        for (int i = 0; i < 9; i++)
+        {
+            if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
+                doodle->setIsFalling(false);
+                gameAudio->playSFX("../media/jump.wav");
+            }
+        }
+    }
+   
+
+    if (mCurrentCameraPostion < mCameraPostionToReach) {
+        mCamNode->lookAt(Vector3(0, mCamNode->getPosition().y + 0.05f, 0), Node::TS_WORLD);
+        mCamNode->setPosition(0, mCamNode->getPosition().y + 0.1f, 25);
+        mCurrentCameraPostion = mCamNode->getPosition().y;
     }
 
-    mRoot->renderOneFrame();
     // Cam Following player 
-    mCamNode->lookAt(Vector3(0,doodle->GetPosition().y, 0), Node::TS_WORLD);
-    mCamNode->setPosition(0, doodle->GetPosition().y, 25);
+    //mCamNode->lookAt(Vector3(0,doodle->GetPosition().y, 0), Node::TS_WORLD);
+    //mCamNode->setPosition(0, doodle->GetPosition().y, 25);
     
-    if (gameInput->checkIfKeyBeingPressed('a'))
-        translate = Ogre::Vector3(-10, 0, 0);
-    if (gameInput->checkIfKeyBeingPressed('d'))
-        translate = Ogre::Vector3(10, 0, 0);
     
     gameInput->reset();
 }
