@@ -46,9 +46,10 @@ Ogre::Vector3 Doodle::GetPosition()
     return mSceneNode->getPosition();
 }
 
-void Doodle::resetPosition()
+void Doodle::resetPosition(Ogre::Vector3 spawnPosition)
 {
-    mSceneNode->setPosition(Ogre::Vector3(spawnLocation.x, spawnLocation.y + 1, spawnLocation.z));
+    mSceneNode->setPosition(spawnPosition);
+    apexHeight = 0;
     showReset = false;
 }
 
@@ -59,7 +60,7 @@ bool Doodle::Goal(float d)
     return false;
 }
 
-void Doodle::Update(Vector3 gravity)
+void Doodle::Update(Vector3 gravity, float cameraY)
 {
 
     if (isFalling) 
@@ -85,7 +86,7 @@ void Doodle::Update(Vector3 gravity)
         mSceneNode->setPosition((GetPosition().x + sign) * -1, GetPosition().y, GetPosition().z);
     }
 
-    if ( GetPosition().y < - 14) {
+    if ( GetPosition().y < (cameraY - 14)) {
         showReset = true;
     }
 }

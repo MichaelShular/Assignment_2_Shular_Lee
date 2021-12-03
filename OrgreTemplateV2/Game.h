@@ -21,13 +21,14 @@ public:
     static Game* _game;
     static Game* GetInstance(Root* root, SceneManager* scn, Camera* cam);
 private:
+    const static int numberOfPlatforms = 15;
     Game(Game& other) = delete;
     void operator=(const Game&) = delete;
     SceneManager* mScnMgr;
     Root* mRoot;
     Camera* mCamera;
     SceneNode* mCamNode;
-    Platform* plaform[9];
+    Platform* plaform[numberOfPlatforms];
     Doodle* doodle;
     Input* gameInput;
     UI* gameUI;
@@ -38,6 +39,7 @@ private:
     Ogre::Timer timer;
     float mPausedTime;
     float lastPlaformHeight;
+    
 
 public:   
     virtual ~Game() { }
@@ -49,6 +51,7 @@ public:
     void createFrameListener();
     void renderOneFrame();   
     void createTrayListener();
+
     
     
     Ogre::SceneNode* SinbadNode;

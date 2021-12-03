@@ -122,7 +122,7 @@ void Game::createScene()
     
 
     //Spawning Platforms
-    for (int i = 0; i < 9; i++)
+    for (int i = 0; i < numberOfPlatforms; i++)
     {
         if (i == 0) {
             plaform[i] = new Platform(mScnMgr, SinbadNode, Ogre::Vector3(0.0f, -10.0f, 0.0f), std::to_string(i));
@@ -133,7 +133,7 @@ void Game::createScene()
             
         }
     }
-    lastPlaformHeight = plaform[8]->GetPosition().y;
+    lastPlaformHeight = plaform[numberOfPlatforms - 1]->GetPosition().y;
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
@@ -187,8 +187,24 @@ void Game::renderOneFrame()
         gameUI->setTrayVisibility(1, true);
         if (gameUI->getIsButtonPressed(0) == true) {
             gameUI->setTrayVisibility(1, false);
-            doodle->resetPosition();
+            mCamNode->setPosition(0, 0, 25);
+            mCamNode->lookAt(Ogre::Vector3(0, 0, 0), Node::TS_WORLD);
+            for (int i = 0; i < numberOfPlatforms; i++)
+            {
+                if (i == 0) {
+                    plaform[i]->resetPlaformPosition(Ogre::Vector3(0.0f, -10.0f, 0.0f));
+                }
+                else
+                {
+                    plaform[i]->resetPlaformPosition(plaform[i - 1]->GetPosition());
+
+                }
+            }
+           
+            doodle->resetPosition(plaform[0]->GetPosition());
             timer.reset();
+            mCurrentCameraPostion = mCameraPostionToReach = 0;
+            lastPlaformHeight = plaform[numberOfPlatforms - 1]->GetPosition().y;
             return;
             //reset camra position
         }
@@ -200,7 +216,7 @@ void Game::renderOneFrame()
             translate = Ogre::Vector3(10, 0, 0);
         gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(timer.getMilliseconds() / 1000));
         mPausedTime = timer.getMilliseconds() / 1000; 
-        doodle->Update(gamePhysics->getGravity());
+        doodle->Update(gamePhysics->getGravity(), mCamNode->getPosition().y);
         mCameraPostionToReach = doodle->getApexHeight();
     }
     if (gameInput->checkIfKeyBeingPressed(SDLK_ESCAPE)) {
@@ -215,10 +231,10 @@ void Game::renderOneFrame()
 
     //Game Collision
     if (doodle->getIsFalling()) {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < numberOfPlatforms; i++)
         {
            
-            if (std::abs(plaform[i]->GetPosition().y - mCamNode->getPosition().y) > 11) {
+            if (plaform[i]->GetPosition().y < mCamNode->getPosition().y && std::abs(plaform[i]->GetPosition().y - mCamNode->getPosition().y) > 11) {
                 plaform[i]->setNewPostion(lastPlaformHeight);
                 lastPlaformHeight = plaform[i]->GetPosition().y;
             }
@@ -239,7 +255,7 @@ void Game::renderOneFrame()
 
 
 
-    std::cout << mCamNode->getPosition().y << std::endl;
+    std::cout << doodle->GetPosition().y << std::endl;
     
     
     gameInput->reset();

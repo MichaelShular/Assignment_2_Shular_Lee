@@ -16,9 +16,9 @@ public:
 	bool getIsFalling();
 	
 	Ogre::Vector3 GetPosition();
-	void resetPosition();
+	void resetPosition(Ogre::Vector3 spawnPosition);
 	bool Goal(float d);
-	void Update(Vector3 gravity);
+	void Update(Vector3 gravity, float cameraY);
 	float getApexHeight();
 	
 	bool showReset;

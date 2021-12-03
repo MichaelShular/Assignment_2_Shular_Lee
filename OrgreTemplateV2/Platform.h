@@ -15,6 +15,7 @@ public:
 	void MoveRight();
 	AxisAlignedBox GetWorldAABB();
 	void setNewPostion(float lastPlatformPostionY);
+	void resetPlaformPosition(Ogre::Vector3 lastPlatformPosition);
 
 private:
 	Ogre::Vector3 setPlatformLevel(Ogre::Vector3 lastPlatformPosition);
