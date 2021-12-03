@@ -21,11 +21,6 @@ cmake-build-*/
 *.pch
 *.ipch
 
-OrgreTemplateV2.vcxproj
-
-OrgreTemplateV2.vcxproj.filters
-
-OrgreTemplateV2.vcxproj.user
 
 spotLight.jpg
 
