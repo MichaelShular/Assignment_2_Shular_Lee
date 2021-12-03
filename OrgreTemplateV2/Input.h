@@ -4,10 +4,10 @@
 
 #include "Ogre.h"
 #include "OgreInput.h"
-
+#include "Application.h"
 using namespace Ogre;
 
-class Input {
+class Input: public InputListener  {
 protected:
 	Input(Root* root);
 	~Input() {};
@@ -19,11 +19,10 @@ public:
 	static Input* GetInstance(Root* root);
 
 	bool Update(const OgreBites::KeyboardEvent& evt);
-
 	bool checkIfKeyBeingPressed(char keyType);
 	bool checkIfKeyBeingPressed(int keyType);
-
 	void reset();
+	OgreBites::KeyboardEvent& GetKey();
 
 private:
 	Root* mRoot;

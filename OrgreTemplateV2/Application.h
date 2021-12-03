@@ -40,14 +40,14 @@ public:
 	void Wake();
 	void Sleep();
 	void HandleEvents();
-	bool Update();
-	void Render();
+	bool Update();	
 	void Clean();
 private:
+	Ogre::Timer timer;
 	Ogre::SceneNode* SinbadNode;
 	bool m_running;
 	Root* mRoot;
-	
+	int m_start, m_end, m_delta, m_fps;
 	Camera* mCamera;
 	SceneManager* mScnMgr;
 	RenderWindow* mWindow; 	

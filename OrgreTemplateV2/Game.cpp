@@ -74,6 +74,7 @@ void Game::setup()
 {       
     gameUI = UI::GetInstance(Application::GetInstance()->getRenderWindow(), mScnMgr, Application::GetInstance()->getOverlaySystem());
     
+    // Add Input Listener to Root
     Application::GetInstance()->addInputListener(this);
     createCamera();
     createScene();
@@ -136,7 +137,7 @@ void Game::createScene()
         }
     }
     //Spawning doodle
-    doodle = new Doodle(mScnMgr, SinbadNode, Vector3(0,0,0));
+    doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
 
 }
@@ -150,7 +151,7 @@ void Game::createCamera()
     // create the camera
     mCamera = mScnMgr->createCamera("myCam");
 
-    mCamera->setNearClipDistance(5); // specific to this sample
+    mCamera->setNearClipDistance(10); // specific to this sample
     mCamera->setAutoAspectRatio(true);
     mCamNode->attachObject(mCamera);
     mCamNode->setPosition(0, 0, 25);
@@ -175,8 +176,8 @@ bool Game::keyPressed(const KeyboardEvent& evt)
 {
     gameInput->Update(evt);
     return true;
-}
-
+}
+
 
 
 
@@ -189,24 +190,40 @@ void Game::createFrameListener()
 
 void Game::renderOneFrame()
 {
+    if (doodle->Goal(plaform[8]->GetPosition().y))
+    {
+        Application::GetInstance()->Running() = false;
+    }
     //Ogre::WindowEventUtilities::messagePump();
     mRoot->renderOneFrame();
+    // Cam Following player 
+    mCamNode->lookAt(doodle->GetPosition(), Node::TS_WORLD);
+    mCamNode->setPosition(doodle->GetPosition().x, doodle->GetPosition().y, 25);
+    
     if (gameInput->checkIfKeyBeingPressed('a'))
         translate = Ogre::Vector3(-10, 0, 0);
 
     gameInput->reset();
+}
+
+void Game::createTrayListener()
+{
+    
+    Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("InterfaceName", true));
+    gameUI->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
+    gameUI->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
+
+    Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("ButtonInterface", false));
+    gameUI->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
 }
 
-void Game::createTrayListener()
+Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
 {
-    
-    Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("InterfaceName", true));
-    gameUI->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
-    gameUI->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
-
-    Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("ButtonInterface", false));
-    gameUI->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
+    // Make instance of Game
+    if (_game == nullptr) {
+        _game = new Game(root, scn, cam);
+    }
+    return _game;
 }
-
 
 
