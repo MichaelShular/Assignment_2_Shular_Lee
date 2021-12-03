@@ -29,12 +29,6 @@ public:
 
     bool frameStarted(const Ogre::FrameEvent& evt)
     {
-        //std::cout << "Frame started" << std::endl;
-
-        /* _camNode->yaw(Ogre::Radian(rotX * _mousespeed * evt.timeSinceLastFrame));
-         _camNode->pitch(Ogre::Radian(rotY * _mousespeed * evt.timeSinceLastFrame));
-         rotX = 0.0f;
-         rotY = 0.0f;*/
         _sceneNode->translate(translate * evt.timeSinceLastFrame);
         translate = Ogre::Vector3(0, 0, 0);
 
@@ -73,7 +67,8 @@ Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
 void Game::setup()
 {       
     gameUI = UI::GetInstance(Application::GetInstance()->getRenderWindow(), mScnMgr, Application::GetInstance()->getOverlaySystem());
-    
+    gameAudio = Audio::GetInstance();
+
     // Add Input Listener to Root
     Application::GetInstance()->addInputListener(this);
     createCamera();
@@ -82,7 +77,6 @@ void Game::setup()
     createTrayListener();
 
     gameInput = Input::GetInstance(mRoot);
-    
 }
 
 void Game::createScene()
@@ -139,7 +133,8 @@ void Game::createScene()
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
-
+    gameAudio->playBGM("../media/ophelia.mp3");
+    gameAudio->setVolume(0.2);
 }
 
 void Game::createCamera()
@@ -163,15 +158,6 @@ void Game::createCamera()
     mCamera->setAspectRatio(Ogre::Real(viewport->getActualWidth()) / Ogre::Real(viewport->getActualHeight()));
 }
 
-
-
-//bool Game::mouseMoved(const MouseMotionEvent& evt)
-//{
-//    rotX = evt.xrel;
-//    rotY = evt.yrel;
-//    return true;
-//}
-//
 bool Game::keyPressed(const KeyboardEvent& evt)
 {
     gameInput->Update(evt);
@@ -190,7 +176,7 @@ void Game::renderOneFrame()
     {
         Application::GetInstance()->Running() = false;
     }
-    //Ogre::WindowEventUtilities::messagePump();
+
     mRoot->renderOneFrame();
     // Cam Following player 
     mCamNode->lookAt(Vector3(0,doodle->GetPosition().y, 0), Node::TS_WORLD);
@@ -198,7 +184,9 @@ void Game::renderOneFrame()
     
     if (gameInput->checkIfKeyBeingPressed('a'))
         translate = Ogre::Vector3(-10, 0, 0);
-
+    if (gameInput->checkIfKeyBeingPressed('d'))
+        translate = Ogre::Vector3(10, 0, 0);
+    
     gameInput->reset();
 }
 
@@ -206,18 +194,13 @@ void Game::renderOneFrame()
 
 void Game::createTrayListener()
 {
-    
-
+    //Creating stats UI
     Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("InterfaceName", true));
-
     gameUI->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
-
     gameUI->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
 
-
-
+    //Creating Reset UI
     Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("ButtonInterface", false));
-
     gameUI->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
 
 }

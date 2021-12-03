@@ -8,6 +8,7 @@
 #include "Doodle.h"
 #include "Input.h"
 #include "UI.h"
+#include "audio.h"
 
 
 class Game : public Ogre::FrameListener, public InputListener
@@ -29,7 +30,7 @@ private:
     Doodle* doodle;
     Input* gameInput;
     UI* gameUI;
-
+    Audio* gameAudio;
     
 public:   
     virtual ~Game() { }
