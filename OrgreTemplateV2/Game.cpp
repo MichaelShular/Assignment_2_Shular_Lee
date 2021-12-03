@@ -55,13 +55,33 @@ public:
     }
 };
 
+Game::Game(Root* root, SceneManager* scn, Camera* cam)
+{
+    mRoot = root;
+    mScnMgr = scn;
+    mCamera = cam;
+}
+
+Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
+{
+    if (_game == nullptr) {
+        _game = new Game(root, scn, cam);
+    }
+    return _game;
+}
 
 void Game::setup()
 {       
+    gameUI = UI::GetInstance(Application::GetInstance()->getRenderWindow(), mScnMgr, Application::GetInstance()->getOverlaySystem());
+    
     Application::GetInstance()->addInputListener(this);
     createCamera();
     createScene();
     createFrameListener();
+    createTrayListener();
+
+    gameInput = Input::GetInstance(mRoot);
+    
 }
 
 void Game::createScene()
@@ -153,29 +173,13 @@ void Game::createCamera()
 //
 bool Game::keyPressed(const KeyboardEvent& evt)
 {
-    switch (evt.keysym.sym)
-    {
-    case SDLK_ESCAPE:
-       
-        
-        break;
-    case 'w':
-        translate = Ogre::Vector3(0, 10, 0);
-        break;
-    case 's':
-        translate = Ogre::Vector3(0, -10, 0);
-        break;
-    case 'a':
-        translate = Ogre::Vector3(-10, 0, 0);
-        break;
-    case 'd':
-        translate = Ogre::Vector3(10, 0, 0);
-        break;
-    default:
-        break;
-    }
+    gameInput->Update(evt);
     return true;
 }
+
+
+
+
 
 void Game::createFrameListener()
 {
@@ -187,20 +191,22 @@ void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
     mRoot->renderOneFrame();
-    translate = Ogre::Vector3(-10, 0, 0);
+    if (gameInput->checkIfKeyBeingPressed('a'))
+        translate = Ogre::Vector3(-10, 0, 0);
+
+    gameInput->reset();
 }
 
-Game::Game(Root* root, SceneManager* scn ,Camera* cam)
+void Game::createTrayListener()
 {
-    mRoot = root;
-    mScnMgr = scn;
-    mCamera = cam;
+    
+    Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("InterfaceName", true));
+    gameUI->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
+    gameUI->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
+
+    Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("ButtonInterface", false));
+    gameUI->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
 }
 
-Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
-{
-    if (_game == nullptr) {
-        _game = new Game(root, scn, cam);
-    }
-    return _game;
-}
+
+

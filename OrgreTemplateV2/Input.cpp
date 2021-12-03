@@ -46,7 +46,7 @@ bool Input::checkIfKeyBeingPressed(int keyType)
 
 void Input::reset()
 {
-   // currentKey = ;
+    currentKey.keysym.sym = OgreBites::SDLK_F11;
 }
 
 

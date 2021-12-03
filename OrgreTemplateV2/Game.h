@@ -6,6 +6,9 @@
 #include <iostream>
 #include "Platform.h"
 #include "Doodle.h"
+#include "Input.h"
+#include "UI.h"
+
 
 class Game : public Ogre::FrameListener, public InputListener
 {
@@ -24,8 +27,12 @@ private:
     SceneNode* mCamNode;
     Platform* plaform[9];
     Doodle* doodle;
+    Input* gameInput;
+    UI* gameUI;
+
+    
 public:   
-    virtual ~Game() {}
+    virtual ~Game() { }
     void setup();
     void createScene();
     void createCamera();
@@ -33,6 +40,7 @@ public:
     //bool mouseMoved(const MouseMotionEvent& e);*/
     void createFrameListener();
     void renderOneFrame();   
+    void createTrayListener();
     
     
     Ogre::SceneNode* SinbadNode;
