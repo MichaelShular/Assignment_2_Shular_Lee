@@ -11,6 +11,7 @@
 #include "UI.h"
 #include "audio.h"
 #include "OgreTimer.h"
+#include "Goal.h"
 
 class Game : public Ogre::FrameListener, public InputListener
 {
@@ -39,6 +40,7 @@ private:
     Ogre::Timer timer;
     float mPausedTime;
     float lastPlaformHeight;
+    Goal* goalToReach;
     
 
 public:   

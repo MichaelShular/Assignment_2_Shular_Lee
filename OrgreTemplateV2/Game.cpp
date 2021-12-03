@@ -137,9 +137,12 @@ void Game::createScene()
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
+    //Spawning Goal
+    goalToReach = new Goal(mScnMgr, SinbadNode, Vector3(0.0f, 40.0f, 0.0f));
+
     gamePhysics->setGravity(Vector3(0.0f, -0.1f, 0.0f));
 
-    gameAudio->playBGM("../media/ophelia.mp3");
+    //gameAudio->playBGM("../media/ophelia.mp3");
     gameAudio->setVolume(0.2f);
 }
 
@@ -182,6 +185,12 @@ void Game::renderOneFrame()
 { 
     mRoot->renderOneFrame();
     
+    //check if doodle reached the goal
+    if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), goalToReach->GetWorldAABB())) {
+        doodle->showReset = true;
+    }
+
+
     if (doodle->showReset == true) {
         gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(mPausedTime));
         gameUI->setTrayVisibility(1, true);
