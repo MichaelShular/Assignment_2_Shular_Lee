@@ -82,8 +82,9 @@ void Game::setup()
 
 void Game::createScene()
 {
+    //used to genarate a random seed
+    srand(time(NULL));
 
-    // -- tutorial section start --
     //! [turnlights]
     mScnMgr->setAmbientLight(ColourValue(0.5, 0.5, 0.5));
     //! [turnlights]
@@ -129,8 +130,10 @@ void Game::createScene()
         else
         {
             plaform[i] = new Platform(mScnMgr, SinbadNode, plaform[i - 1]->GetPosition(), std::to_string(i));
+            
         }
     }
+    lastPlaformHeight = plaform[8]->GetPosition().y;
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
@@ -176,9 +179,7 @@ void Game::createFrameListener()
 }
 
 void Game::renderOneFrame()
-{
-   
-    
+{ 
     mRoot->renderOneFrame();
     
     if (doodle->showReset == true) {
@@ -202,6 +203,10 @@ void Game::renderOneFrame()
         doodle->Update(gamePhysics->getGravity());
         mCameraPostionToReach = doodle->getApexHeight();
     }
+    if (gameInput->checkIfKeyBeingPressed(SDLK_ESCAPE)) {
+        mRoot->queueEndRendering();
+        Application::GetInstance()->setIsRunning(false);
+    }
    
     /*if (doodle->Goal(plaform[8]->GetPosition().y))
     {
@@ -212,6 +217,12 @@ void Game::renderOneFrame()
     if (doodle->getIsFalling()) {
         for (int i = 0; i < 9; i++)
         {
+           
+            if (std::abs(plaform[i]->GetPosition().y - mCamNode->getPosition().y) > 11) {
+                plaform[i]->setNewPostion(lastPlaformHeight);
+                lastPlaformHeight = plaform[i]->GetPosition().y;
+            }
+
             if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
                 doodle->setIsFalling(false);
                 gameAudio->playSFX("../media/jump.wav");
@@ -226,9 +237,9 @@ void Game::renderOneFrame()
         mCurrentCameraPostion = mCamNode->getPosition().y;
     }
 
-    // Cam Following player 
-    //mCamNode->lookAt(Vector3(0,doodle->GetPosition().y, 0), Node::TS_WORLD);
-    //mCamNode->setPosition(0, doodle->GetPosition().y, 25);
+
+
+    std::cout << mCamNode->getPosition().y << std::endl;
     
     
     gameInput->reset();

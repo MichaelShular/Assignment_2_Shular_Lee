@@ -42,6 +42,7 @@ public:
 	void HandleEvents();
 	bool Update();	
 	void Clean();
+	void setIsRunning(bool a) {m_running = a; }
 private:
 	Ogre::Timer timer;
 	Ogre::SceneNode* SinbadNode;

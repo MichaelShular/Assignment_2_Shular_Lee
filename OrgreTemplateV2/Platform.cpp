@@ -45,3 +45,11 @@ AxisAlignedBox Platform::GetWorldAABB()
 {
     return mSceneNode->_getWorldAABB();
 }
+
+void Platform::setNewPostion(float lastPlatformPostionY)
+{
+    float xPos, yPos;
+    xPos = Ogre::Math::RangeRandom(-14, 14);
+    yPos = lastPlatformPostionY + Ogre::Math::RangeRandom(0, 3);
+    mSceneNode->setPosition(Vector3(xPos, yPos, 0));
+}

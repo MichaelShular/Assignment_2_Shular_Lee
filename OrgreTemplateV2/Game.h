@@ -4,6 +4,7 @@
 #include "Ogre.h"
 #include "Application.h"
 #include <iostream>
+#include <time.h>
 #include "Platform.h"
 #include "Doodle.h"
 #include "Input.h"
@@ -36,6 +37,7 @@ private:
     float mCurrentCameraPostion;
     Ogre::Timer timer;
     float mPausedTime;
+    float lastPlaformHeight;
 
 public:   
     virtual ~Game() { }

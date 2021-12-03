@@ -85,7 +85,7 @@ void Doodle::Update(Vector3 gravity)
         mSceneNode->setPosition((GetPosition().x + sign) * -1, GetPosition().y, GetPosition().z);
     }
 
-    if (GetPosition().y > 10 || GetPosition().y < - 14) {
+    if ( GetPosition().y < - 14) {
         showReset = true;
     }
 }
