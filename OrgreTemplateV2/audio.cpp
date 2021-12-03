@@ -7,6 +7,7 @@ Audio* Audio::audio_ = nullptr;;
 Audio::Audio()
 {
     engine = createIrrKlangDevice();
+    currentVolume = 0.5;
 }
 
 /// Used to get a single instance of the Audio class
@@ -41,7 +42,12 @@ void Audio::playBGM(const char* filepath)
 /// @param: a float
 void Audio::setVolume(float amount)
 {
-    engine->setSoundVolume(amount);
+    currentVolume += amount;
+    if (currentVolume < 0)
+        currentVolume = 0;
+    if (currentVolume > 1)
+        currentVolume = 1;
+    engine->setSoundVolume(currentVolume);
 }
 
 /// Stop all sounds playing in the game

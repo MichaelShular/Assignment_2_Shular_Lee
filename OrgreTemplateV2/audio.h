@@ -28,6 +28,7 @@ public:
 
 private:
     ISoundEngine* engine; 
+    float currentVolume;
 };
 
 #endif

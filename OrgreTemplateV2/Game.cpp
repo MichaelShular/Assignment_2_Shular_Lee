@@ -165,8 +165,17 @@ void Game::createFrameListener()
 void Game::renderOneFrame()
 { 
     mRoot->renderOneFrame();
+    //changeing volume
+    if (gameInput->checkIfKeyBeingPressed('='))
+        gameAudio->setVolume(0.1);
+    if (gameInput->checkIfKeyBeingPressed('-'))
+        gameAudio->setVolume(-0.1);
+    if (gameInput->checkIfKeyBeingPressed('m'))
+        gameAudio->stopAllSound();
+
     //check if doodle reached the goal
     if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), goalToReach->GetWorldAABB())) {
+        gameUI->setCaptionForLabel(2, "Win");
         doodle->showReset = true;
     }
     //Pause game if true and show reset button
@@ -206,8 +215,11 @@ void Game::renderOneFrame()
         //Update Time UI
         gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(timer.getMilliseconds() / 1000));
         mPausedTime = timer.getMilliseconds() / 1000; 
+        //Update height UI
+        gameUI->setCaptionForLabel(1, "Height: " + Ogre::StringConverter::toString( mCurrentCameraPostion ));
         //Update doodle
         doodle->Update(gamePhysics->getGravity(), mCamNode->getPosition().y);
+        gameUI->setCaptionForLabel(2, "Lose");
         //Used to see if camera needs to move
         mCameraPostionToReach = doodle->getApexHeight();
     }
@@ -250,9 +262,11 @@ void Game::createTrayListener()
     Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("InterfaceName", true));
     gameUI->addedFrameStatsToTray(0, TL_TOPRIGHT, false);
     gameUI->addedLabelToTary(0, TL_TOPRIGHT, "time", "Time: 0", 150);
+    gameUI->addedLabelToTary(0, TL_TOPLEFT, "height", "Height: 0", 150);
 
     //Creating Reset UI
     Application::GetInstance()->addInputListener(gameUI->addedTrayMgr("ButtonInterface", false));
+    gameUI->addedLabelToTary(1, TL_CENTER, "GameState", "Win/Lose", 150);
     gameUI->addedButtonToTray(1, TL_CENTER, "reset", "Reset", 100);
 
 }
