@@ -6,7 +6,7 @@
 #include "OgreInput.h"
 #include "Application.h"
 using namespace Ogre;
-
+/// This class is used to create and control the user's inputs
 class Input: public InputListener  {
 protected:
 	Input(Root* root);
@@ -22,8 +22,6 @@ public:
 	bool checkIfKeyBeingPressed(char keyType);
 	bool checkIfKeyBeingPressed(int keyType);
 	void reset();
-	OgreBites::KeyboardEvent& GetKey();
-
 private:
 	Root* mRoot;
 	OgreBites::KeyboardEvent currentKey;
