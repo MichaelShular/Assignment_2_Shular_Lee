@@ -46,8 +46,9 @@ bool Input::checkIfKeyBeingPressed(int keyType)
 
 void Input::reset()
 {
-   // currentKey = ;
+   //currentKey = ;
 }
+
 
 
 

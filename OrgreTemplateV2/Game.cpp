@@ -130,7 +130,7 @@ void Game::createCamera()
     // create the camera
     mCamera = mScnMgr->createCamera("myCam");
 
-    mCamera->setNearClipDistance(5); // specific to this sample
+    mCamera->setNearClipDistance(10); // specific to this sample
     mCamera->setAutoAspectRatio(true);
     mCamNode->attachObject(mCamera);
     mCamNode->setPosition(0, 0, 25);
@@ -155,9 +155,7 @@ bool Game::keyPressed(const KeyboardEvent& evt)
 {
     switch (evt.keysym.sym)
     {
-    case SDLK_ESCAPE:
-       
-        
+    case SDLK_ESCAPE:       
         break;
     case 'w':
         translate = Ogre::Vector3(0, 10, 0);
@@ -187,7 +185,9 @@ void Game::renderOneFrame()
 {
     //Ogre::WindowEventUtilities::messagePump();
     mRoot->renderOneFrame();
-    translate = Ogre::Vector3(-10, 0, 0);
+    mCamNode->lookAt(doodle->GetPosition(), Node::TS_WORLD);
+    mCamNode->setPosition(doodle->GetPosition().x, doodle->GetPosition().y, 25);
+    
 }
 
 Game::Game(Root* root, SceneManager* scn ,Camera* cam)

@@ -18,7 +18,7 @@ public:
 	Ogre::Vector3 GetPosition();
 	bool showReset;
 	void resetPosition();
-
+	
 
 private:
 	SceneManager* mSceneManager;

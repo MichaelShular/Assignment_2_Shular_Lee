@@ -56,7 +56,8 @@ void Doodle::resetPosition()
 void Doodle::Update(Vector3 gravity)
 {
 
-    if (isFalling) {
+    if (isFalling) 
+    {
         mSceneNode->translate(gravity);
     }
     else
