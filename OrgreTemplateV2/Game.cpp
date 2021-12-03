@@ -31,7 +31,6 @@ public:
     {
         _sceneNode->translate(translate * evt.timeSinceLastFrame);
         translate = Ogre::Vector3(0, 0, 0);
-
         return true;
     }
 
@@ -49,6 +48,11 @@ public:
     }
 };
 
+/// The defualt conconstructor
+/// 
+/// @param: a Oger::SceneManager
+/// @param: a Oger::SceneNode
+/// @param: a Oger::Camera
 Game::Game(Root* root, SceneManager* scn, Camera* cam)
 {
     mRoot = root;
@@ -56,6 +60,12 @@ Game::Game(Root* root, SceneManager* scn, Camera* cam)
     mCamera = cam;
 }
 
+/// Used to get a single instance of the Game class
+/// 
+/// @param: a Oger::SceneManager
+/// @param: a Oger::SceneNode
+/// @param: a Oger::Camera
+/// @returns the created Game.
 Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
 {
     if (_game == nullptr) {
@@ -64,6 +74,7 @@ Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
     return _game;
 }
 
+/// Used to set the class's variables and create any other class instance need for the game
 void Game::setup()
 {       
     gameUI = UI::GetInstance(Application::GetInstance()->getRenderWindow(), mScnMgr, Application::GetInstance()->getOverlaySystem());
@@ -80,6 +91,7 @@ void Game::setup()
     gameInput = Input::GetInstance(mRoot);
 }
 
+/// Used to create objects that will be used 
 void Game::createScene()
 {
     //used to genarate a random seed
@@ -100,26 +112,20 @@ void Game::createScene()
     // Set Light (Range, Brightness, Fade Speed, Rapid Fade Speed)
     light1->setAttenuation(10, 0.5, 0.045, 0.0);
 
-    //
+    //Creating light
     Entity* lightEnt = mScnMgr->createEntity("LightEntity", "sphere.mesh");
     SceneNode* lightNode = mScnMgr->createSceneNode("LightNode");
-    //lightNode->attachObject(lightEnt);
     lightNode->attachObject(light1);
     lightNode->setScale(0.01f, 0.01f, 0.01f);
 
-
     mScnMgr->getRootSceneNode()->addChild(lightNode);
     //! [newlight]
-
-
 
     //! [lightpos]
     lightNode->setPosition(0, 4, 10);
     //! [lightpos]
 
-
     SinbadNode = mScnMgr->getRootSceneNode()->createChildSceneNode("Node1");
-    
 
     //Spawning Platforms
     for (int i = 0; i < numberOfPlatforms; i++)
@@ -134,21 +140,26 @@ void Game::createScene()
         }
     }
     lastPlaformHeight = plaform[numberOfPlatforms - 1]->GetPosition().y;
+    
     //Spawning doodle
     doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
-
+    
     //Spawning Goal
     goalToReach = new Goal(mScnMgr, SinbadNode, Vector3(0.0f, 40.0f, 0.0f));
-
+    
+    //Set game's gravity
     gamePhysics->setGravity(Vector3(0.0f, -0.1f, 0.0f));
-
-    //gameAudio->playBGM("../media/ophelia.mp3");
+   
+    //Play BMG music
+    gameAudio->playBGM("../media/ophelia.mp3");
+    
+    //Set volume
     gameAudio->setVolume(0.2f);
 }
 
+/// Used to create camera used in game
 void Game::createCamera()
 {
-
     //! [camera]
     mCamNode = mScnMgr->getRootSceneNode()->createChildSceneNode();
 
@@ -169,32 +180,38 @@ void Game::createCamera()
     mCurrentCameraPostion = mCameraPostionToReach = 0;
 }
 
+/// Used to listen for what key is pressed 
+/// 
+/// @returns an bool
 bool Game::keyPressed(const KeyboardEvent& evt)
 {
     gameInput->Update(evt);
     return true;
 }
 
+/// Create FrameLisener and add to root
 void Game::createFrameListener()
 {
     Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode);
     mRoot->addFrameListener(FrameListener);
 }
 
+/// All game logic the need to happen in each frame
 void Game::renderOneFrame()
 { 
     mRoot->renderOneFrame();
-    
     //check if doodle reached the goal
     if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), goalToReach->GetWorldAABB())) {
         doodle->showReset = true;
     }
-
+    //Pause game if true and show reset button
     if (doodle->showReset == true) {
         gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(mPausedTime));
         gameUI->setTrayVisibility(1, true);
+        //Reset button logic if pressed
         if (gameUI->getIsButtonPressed(0) == true) {
             gameUI->setTrayVisibility(1, false);
+            //Reseting game objects to play again 
             mCamNode->setPosition(0, 0, 25);
             mCamNode->lookAt(Ogre::Vector3(0, 0, 0), Node::TS_WORLD);
             for (int i = 0; i < numberOfPlatforms; i++)
@@ -208,59 +225,60 @@ void Game::renderOneFrame()
 
                 }
             }
-           
             doodle->resetPosition(plaform[0]->GetPosition());
             timer.reset();
             mCurrentCameraPostion = mCameraPostionToReach = 0;
             lastPlaformHeight = plaform[numberOfPlatforms - 1]->GetPosition().y;
             return;
-            //reset camra position
         }
     }
     else {
+        //doodle movement
         if (gameInput->checkIfKeyBeingPressed('a'))
             translate = Ogre::Vector3(-10, 0, 0);
         if (gameInput->checkIfKeyBeingPressed('d'))
             translate = Ogre::Vector3(10, 0, 0);
+        //Update Time UI
         gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(timer.getMilliseconds() / 1000));
         mPausedTime = timer.getMilliseconds() / 1000; 
+        //Update doodle
         doodle->Update(gamePhysics->getGravity(), mCamNode->getPosition().y);
+        //Used to see if camera needs to move
         mCameraPostionToReach = doodle->getApexHeight();
     }
+    //Check if application need to close
     if (gameInput->checkIfKeyBeingPressed(SDLK_ESCAPE)) {
         mRoot->queueEndRendering();
         Application::GetInstance()->setIsRunning(false);
     }
-
     //Game Collision
     if (doodle->getIsFalling()) {
         for (int i = 0; i < numberOfPlatforms; i++)
         {
-           
+            //Check is platform is below a certain distance then move to new position
             if (plaform[i]->GetPosition().y < mCamNode->getPosition().y && std::abs(plaform[i]->GetPosition().y - mCamNode->getPosition().y) > 11) {
                 plaform[i]->setNewPostion(lastPlaformHeight);
                 lastPlaformHeight = plaform[i]->GetPosition().y;
             }
-
+            //Check if doodle collides with platform
             if (gamePhysics->checkAAABB(doodle->GetWorldAABB(), plaform[i]->GetWorldAABB())) {
                 doodle->setIsFalling(false);
                 gameAudio->playSFX("../media/jump.wav");
             }
         }
     }
-   
-
+    //Camera Movement in game
     if (mCurrentCameraPostion < mCameraPostionToReach) {
         mCamNode->lookAt(Vector3(0, mCamNode->getPosition().y + 0.05f, 0), Node::TS_WORLD);
         mCamNode->setPosition(0, mCamNode->getPosition().y + 0.1f, 25);
         mCurrentCameraPostion = mCamNode->getPosition().y;
     }
-
+    //Reset Input of what key is pressed
     gameInput->reset();
 }
 
 
-
+///Create all trays in the scene with what UI objects are in them.
 void Game::createTrayListener()
 {
     //Creating stats UI

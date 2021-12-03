@@ -12,7 +12,7 @@
 #include "audio.h"
 #include "OgreTimer.h"
 #include "Goal.h"
-
+/// This class is used to create and control the logic of the game
 class Game : public Ogre::FrameListener, public InputListener
 {
 protected:
@@ -41,8 +41,7 @@ private:
     float mPausedTime;
     float lastPlaformHeight;
     Goal* goalToReach;
-    
-
+   
 public:   
     virtual ~Game() { }
     void setup();
@@ -52,10 +51,7 @@ public:
     //bool mouseMoved(const MouseMotionEvent& e);*/
     void createFrameListener();
     void renderOneFrame();   
-    void createTrayListener();
-
-    
-    
+    void createTrayListener();   
     Ogre::SceneNode* SinbadNode;
    
 };
