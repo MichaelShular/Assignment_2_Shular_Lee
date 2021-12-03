@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Assignment_2_Doxygen_ShularLee", "index.html", [
-    [ "README", "md__r_e_a_d_m_e.html", null ],
+    [ "README", "md__d___semester_5__game__engine__development__assignment_2__shular__lee__orgre_template_v2__r_e_a_d_m_e.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
