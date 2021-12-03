@@ -1,0 +1,154 @@
+\hypertarget{class_physics}{}\doxysection{Physics Class Reference}
+\label{class_physics}\index{Physics@{Physics}}
+
+
+This class is used to create and the physics of the game.  
+
+
+
+
+{\ttfamily \#include $<$Physics.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_physics_a1e1753e7dcbf23d08555144f8b9946d3}{Physics}} (\mbox{\hyperlink{class_physics}{Physics}} \&other)=delete
+\item 
+void \mbox{\hyperlink{class_physics_ac6bbdbbb6f0f83106a85290e1c3257e2}{operator=}} (const \mbox{\hyperlink{class_physics}{Physics}} \&)=delete
+\item 
+bool \mbox{\hyperlink{class_physics_abb03107477358dc1944b4dfc420a0b0a}{check\+AAABB}} (Axis\+Aligned\+Box a, Axis\+Aligned\+Box b)
+\begin{DoxyCompactList}\small\item\em Used to check the collision. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_physics_a93e8ae4735d8039ce379c6972a49bdc4}{set\+Gravity}} (Vector3 new\+Gravity)
+\begin{DoxyCompactList}\small\item\em Used to set gravity for game. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{class_physics_a65584213333f281a491abea439ac8b14}{get\+Gravity}} ()
+\begin{DoxyCompactList}\small\item\em Used to get gravity for game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_physics}{Physics}} $\ast$ \mbox{\hyperlink{class_physics_a40352c3ec056138b30b2748ea5a31ef8}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Used to get a single instance of the \mbox{\hyperlink{class_physics}{Physics}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_physics_a4b2ebc0a344f04f48d227c72f0d0fbda}{Physics}} ()
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_physics_a045c3788e28059d3920136499942490f}{$\sim$\+Physics}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_physics}{Physics}} $\ast$ \mbox{\hyperlink{class_physics_a55a6bb8f72e33c6e860afcead6ebd3b6}{physics\+\_\+}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create and the physics of the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_physics_a4b2ebc0a344f04f48d227c72f0d0fbda}\label{class_physics_a4b2ebc0a344f04f48d227c72f0d0fbda}} 
+\index{Physics@{Physics}!Physics@{Physics}}
+\index{Physics@{Physics}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{Physics()}{Physics()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Physics\+::\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+The defualt conconstructor. 
+
+\mbox{\Hypertarget{class_physics_a045c3788e28059d3920136499942490f}\label{class_physics_a045c3788e28059d3920136499942490f}} 
+\index{Physics@{Physics}!````~Physics@{$\sim$Physics}}
+\index{````~Physics@{$\sim$Physics}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{$\sim$Physics()}{~Physics()}}
+{\footnotesize\ttfamily Physics\+::$\sim$\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_physics_a1e1753e7dcbf23d08555144f8b9946d3}\label{class_physics_a1e1753e7dcbf23d08555144f8b9946d3}} 
+\index{Physics@{Physics}!Physics@{Physics}}
+\index{Physics@{Physics}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{Physics()}{Physics()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Physics\+::\+Physics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_physics}{Physics}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_physics_abb03107477358dc1944b4dfc420a0b0a}\label{class_physics_abb03107477358dc1944b4dfc420a0b0a}} 
+\index{Physics@{Physics}!checkAAABB@{checkAAABB}}
+\index{checkAAABB@{checkAAABB}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{checkAAABB()}{checkAAABB()}}
+{\footnotesize\ttfamily bool Physics\+::check\+AAABB (\begin{DoxyParamCaption}\item[{Axis\+Aligned\+Box}]{a,  }\item[{Axis\+Aligned\+Box}]{b }\end{DoxyParamCaption})}
+
+
+
+Used to check the collision. 
+
+This function check collision use AABB 
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Axis\+Aligned\+Box object one \\
+\hline
+{\em } & a Oger\+::\+Axis\+Aligned\+Box object two \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_physics_a65584213333f281a491abea439ac8b14}\label{class_physics_a65584213333f281a491abea439ac8b14}} 
+\index{Physics@{Physics}!getGravity@{getGravity}}
+\index{getGravity@{getGravity}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{getGravity()}{getGravity()}}
+{\footnotesize\ttfamily Vector3 Physics\+::get\+Gravity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Used to get gravity for game. 
+
+\begin{DoxyReturn}{Returns}
+Oger\+::\+Vector3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_physics_a40352c3ec056138b30b2748ea5a31ef8}\label{class_physics_a40352c3ec056138b30b2748ea5a31ef8}} 
+\index{Physics@{Physics}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_physics}{Physics}} $\ast$ Physics\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used to get a single instance of the \mbox{\hyperlink{class_physics}{Physics}} class. 
+
+\begin{DoxyReturn}{Returns}
+the created \mbox{\hyperlink{class_physics}{Physics}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_physics_ac6bbdbbb6f0f83106a85290e1c3257e2}\label{class_physics_ac6bbdbbb6f0f83106a85290e1c3257e2}} 
+\index{Physics@{Physics}!operator=@{operator=}}
+\index{operator=@{operator=}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Physics\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_physics}{Physics}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_physics_a93e8ae4735d8039ce379c6972a49bdc4}\label{class_physics_a93e8ae4735d8039ce379c6972a49bdc4}} 
+\index{Physics@{Physics}!setGravity@{setGravity}}
+\index{setGravity@{setGravity}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{setGravity()}{setGravity()}}
+{\footnotesize\ttfamily void Physics\+::set\+Gravity (\begin{DoxyParamCaption}\item[{Vector3}]{new\+Gravity }\end{DoxyParamCaption})}
+
+
+
+Used to set gravity for game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Vector3 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_physics_a55a6bb8f72e33c6e860afcead6ebd3b6}\label{class_physics_a55a6bb8f72e33c6e860afcead6ebd3b6}} 
+\index{Physics@{Physics}!physics\_@{physics\_}}
+\index{physics\_@{physics\_}!Physics@{Physics}}
+\doxysubsubsection{\texorpdfstring{physics\_}{physics\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_physics}{Physics}} $\ast$ Physics\+::physics\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_physics_8h}{Physics.\+h}}\item 
+\mbox{\hyperlink{_physics_8cpp}{Physics.\+cpp}}\end{DoxyCompactItemize}

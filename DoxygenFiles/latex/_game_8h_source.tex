@@ -1,0 +1,63 @@
+\hypertarget{_game_8h_source}{}\doxysection{Game.\+h}
+\mbox{\hyperlink{_game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_GAME\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_GAME\_H\_}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Ogre.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_application_8h}{Application.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <time.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_platform_8h}{Platform.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_doodle_8h}{Doodle.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_input_8h}{Input.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_u_i_8h}{UI.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{audio_8h}{audio.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}OgreTimer.h"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_goal_8h}{Goal.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}} : \textcolor{keyword}{public} Ogre::FrameListener, \textcolor{keyword}{public} InputListener}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_game_a776acc7aeaf2edf36516e654f964408c}{Game}}(Root* root, SceneManager* scn, Camera* cam);}
+\DoxyCodeLine{20     \textcolor{keyword}{static} \mbox{\hyperlink{class_game}{Game}}* \mbox{\hyperlink{class_game_af88934ba73c4ffe92b49dcc1421694ef}{application}};}
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22     \textcolor{keyword}{static} \mbox{\hyperlink{class_game}{Game}}* \mbox{\hyperlink{class_game_a51f0610ecb77602373d7773450d11083}{\_game}};}
+\DoxyCodeLine{23     \textcolor{keyword}{static} \mbox{\hyperlink{class_game}{Game}}* \mbox{\hyperlink{class_game_a2ea14ab0326ada81800927c0df836c99}{GetInstance}}(Root* root, SceneManager* scn, Camera* cam);}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     \textcolor{keyword}{const} \textcolor{keyword}{static} \textcolor{keywordtype}{int} numberOfPlatforms = 15;}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_game_a776acc7aeaf2edf36516e654f964408c}{Game}}(\mbox{\hyperlink{class_game}{Game}}\& other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_game}{Game}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{28     SceneManager* mScnMgr;}
+\DoxyCodeLine{29     Root* mRoot;}
+\DoxyCodeLine{30     Camera* mCamera;}
+\DoxyCodeLine{31     SceneNode* mCamNode;}
+\DoxyCodeLine{32     \mbox{\hyperlink{class_platform}{Platform}}* plaform[numberOfPlatforms];}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_doodle}{Doodle}}* doodle;}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_input}{Input}}* gameInput;}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_u_i}{UI}}* gameUI;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_audio}{Audio}}* gameAudio;}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_physics}{Physics}}* gamePhysics;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{float} mCameraPostionToReach;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{float} mCurrentCameraPostion;}
+\DoxyCodeLine{40     Ogre::Timer timer;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{float} mPausedTime;}
+\DoxyCodeLine{42     \textcolor{keywordtype}{float} lastPlaformHeight;}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_goal}{Goal}}* goalToReach;}
+\DoxyCodeLine{44    }
+\DoxyCodeLine{45 \textcolor{keyword}{public}:   }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_a72772b628443c3675976d6b5e6c9ec2a}{\string~Game}}() \{ \}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_ae4618ba40eabbbe65e35f1bb239aa29b}{setup}}();}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_acc39660fc2452fc78ca45330d6032e5c}{createScene}}();}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_a73744fbffd68a0ebadfedcecbfff3236}{createCamera}}();}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_a2ba00c3475d222573e5ad54b88b389b7}{keyPressed}}(\textcolor{keyword}{const} KeyboardEvent\& evt);}
+\DoxyCodeLine{51     \textcolor{comment}{//bool mouseMoved(const MouseMotionEvent\& e);*/}}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_af5b56d4ec80bba41a21763b66603c0da}{createFrameListener}}();}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_a769ca13961cb3f37a65e175f9d128793}{renderOneFrame}}();   }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_afdfe2fb017a5559a26ddb9c21ff9fc23}{createTrayListener}}();   }
+\DoxyCodeLine{55     Ogre::SceneNode* \mbox{\hyperlink{class_game_a6649cfbc93b184cdcdc10d72708d16a7}{SinbadNode}};}
+\DoxyCodeLine{56    }
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_GAME\_H\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,37 @@
+\hypertarget{_doodle_8h_source}{}\doxysection{Doodle.\+h}
+\mbox{\hyperlink{_doodle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef DOODLE\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define DOODLE\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Ogre.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_physics_8h}{Physics.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }Ogre;}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_doodle}{Doodle}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_doodle_abfe52f5f532d3e26de7bae489093e9c6}{Doodle}}(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 spawnPosition);}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_doodle_a2f77f21d85c97d0ab7f7c569e05229fc}{\string~Doodle}}() \{\};}
+\DoxyCodeLine{14     AxisAlignedBox \mbox{\hyperlink{class_doodle_a40c7560717319dec15781eb827c95e16}{GetWorldAABB}}();}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_doodle_a7358ed9b5bc4074e8084b2855d38cfbf}{setIsFalling}}(\textcolor{keywordtype}{bool} a);}
+\DoxyCodeLine{16     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_doodle_a8eb55e00b80df8229297ef9e854ae32f}{getIsFalling}}();}
+\DoxyCodeLine{17     Ogre::Vector3 \mbox{\hyperlink{class_doodle_ac035f5735efb0bb52fa5c0595baf11e8}{GetPosition}}();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_doodle_a83f6b36bad729494f0ce9d0f1ac2a38e}{resetPosition}}(Ogre::Vector3 spawnPosition);}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_doodle_ac982693f6f9a0a8284969c13153c31c2}{Update}}(Vector3 gravity, \textcolor{keywordtype}{float} cameraY);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_doodle_a3b29209b4264123a3e6f9eef1235236e}{getApexHeight}}();}
+\DoxyCodeLine{21     }
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_doodle_a15879ef43c7f7155b05b18c099bfdda5}{showReset}};}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     SceneManager* mSceneManager;}
+\DoxyCodeLine{25     SceneNode* mSceneNode;}
+\DoxyCodeLine{26     Entity* mEntity;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} isFalling;}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} counter;}
+\DoxyCodeLine{29     Ogre::Vector3 spawnLocation;}
+\DoxyCodeLine{30     \textcolor{keywordtype}{float} apexHeight;}
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

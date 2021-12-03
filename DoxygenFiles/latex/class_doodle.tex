@@ -1,0 +1,189 @@
+\hypertarget{class_doodle}{}\doxysection{Doodle Class Reference}
+\label{class_doodle}\index{Doodle@{Doodle}}
+
+
+This class is used to create and control aspects of the doodle which is the player.  
+
+
+
+
+{\ttfamily \#include $<$Doodle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_doodle_abfe52f5f532d3e26de7bae489093e9c6}{Doodle}} (Ogre\+::\+Scene\+Manager $\ast$sc\+Mgr, Scene\+Node $\ast$Scene\+Node, Ogre\+::\+Vector3 spawn\+Position)
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor use to initialize doodle variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_doodle_a2f77f21d85c97d0ab7f7c569e05229fc}{$\sim$\+Doodle}} ()
+\item 
+Axis\+Aligned\+Box \mbox{\hyperlink{class_doodle_a40c7560717319dec15781eb827c95e16}{Get\+World\+AABB}} ()
+\begin{DoxyCompactList}\small\item\em Get doodle\textquotesingle{}s world AABB box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_doodle_a7358ed9b5bc4074e8084b2855d38cfbf}{set\+Is\+Falling}} (bool a)
+\begin{DoxyCompactList}\small\item\em Set is\+Falling ~\newline
+ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_doodle_a8eb55e00b80df8229297ef9e854ae32f}{get\+Is\+Falling}} ()
+\begin{DoxyCompactList}\small\item\em Get is\+Falling. \end{DoxyCompactList}\item 
+Ogre\+::\+Vector3 \mbox{\hyperlink{class_doodle_ac035f5735efb0bb52fa5c0595baf11e8}{Get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Used to get the position of the doodle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_doodle_a83f6b36bad729494f0ce9d0f1ac2a38e}{reset\+Position}} (Ogre\+::\+Vector3 spawn\+Position)
+\begin{DoxyCompactList}\small\item\em Reset doodle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_doodle_ac982693f6f9a0a8284969c13153c31c2}{Update}} (Vector3 gravity, float cameraY)
+\begin{DoxyCompactList}\small\item\em Controls what happen during doodle\textquotesingle{}s update. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_doodle_a3b29209b4264123a3e6f9eef1235236e}{get\+Apex\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Returns the maximum height doodle has reached in his jump. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_doodle_a15879ef43c7f7155b05b18c099bfdda5}{show\+Reset}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create and control aspects of the doodle which is the player. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_doodle_abfe52f5f532d3e26de7bae489093e9c6}\label{class_doodle_abfe52f5f532d3e26de7bae489093e9c6}} 
+\index{Doodle@{Doodle}!Doodle@{Doodle}}
+\index{Doodle@{Doodle}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{Doodle()}{Doodle()}}
+{\footnotesize\ttfamily Doodle\+::\+Doodle (\begin{DoxyParamCaption}\item[{Ogre\+::\+Scene\+Manager $\ast$}]{sc\+Mgr,  }\item[{Scene\+Node $\ast$}]{Scene\+Node,  }\item[{Ogre\+::\+Vector3}]{spawn\+Position }\end{DoxyParamCaption})}
+
+
+
+The defualt conconstructor use to initialize doodle variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Scene\+Manager \\
+\hline
+{\em } & a Oger\+::\+Scene\+Node \\
+\hline
+{\em } & a Oger\+::\+Vector3 used to set player spawn Positions ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_doodle_a2f77f21d85c97d0ab7f7c569e05229fc}\label{class_doodle_a2f77f21d85c97d0ab7f7c569e05229fc}} 
+\index{Doodle@{Doodle}!````~Doodle@{$\sim$Doodle}}
+\index{````~Doodle@{$\sim$Doodle}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{$\sim$Doodle()}{~Doodle()}}
+{\footnotesize\ttfamily Doodle\+::$\sim$\+Doodle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_doodle_a3b29209b4264123a3e6f9eef1235236e}\label{class_doodle_a3b29209b4264123a3e6f9eef1235236e}} 
+\index{Doodle@{Doodle}!getApexHeight@{getApexHeight}}
+\index{getApexHeight@{getApexHeight}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{getApexHeight()}{getApexHeight()}}
+{\footnotesize\ttfamily float Doodle\+::get\+Apex\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the maximum height doodle has reached in his jump. 
+
+\begin{DoxyReturn}{Returns}
+a float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_doodle_a8eb55e00b80df8229297ef9e854ae32f}\label{class_doodle_a8eb55e00b80df8229297ef9e854ae32f}} 
+\index{Doodle@{Doodle}!getIsFalling@{getIsFalling}}
+\index{getIsFalling@{getIsFalling}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{getIsFalling()}{getIsFalling()}}
+{\footnotesize\ttfamily bool Doodle\+::get\+Is\+Falling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get is\+Falling. 
+
+\begin{DoxyReturn}{Returns}
+a bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_doodle_ac035f5735efb0bb52fa5c0595baf11e8}\label{class_doodle_ac035f5735efb0bb52fa5c0595baf11e8}} 
+\index{Doodle@{Doodle}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily Ogre\+::\+Vector3 Doodle\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Used to get the position of the doodle. 
+
+\begin{DoxyReturn}{Returns}
+a Ogre\+::\+Vector3. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_doodle_a40c7560717319dec15781eb827c95e16}\label{class_doodle_a40c7560717319dec15781eb827c95e16}} 
+\index{Doodle@{Doodle}!GetWorldAABB@{GetWorldAABB}}
+\index{GetWorldAABB@{GetWorldAABB}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{GetWorldAABB()}{GetWorldAABB()}}
+{\footnotesize\ttfamily Axis\+Aligned\+Box Doodle\+::\+Get\+World\+AABB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get doodle\textquotesingle{}s world AABB box. 
+
+The doodle\textquotesingle{}s AABB box will be used to check if it collides with other objects \begin{DoxyReturn}{Returns}
+Oger\+::\+Axis\+Aligned\+Box 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_doodle_a83f6b36bad729494f0ce9d0f1ac2a38e}\label{class_doodle_a83f6b36bad729494f0ce9d0f1ac2a38e}} 
+\index{Doodle@{Doodle}!resetPosition@{resetPosition}}
+\index{resetPosition@{resetPosition}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{resetPosition()}{resetPosition()}}
+{\footnotesize\ttfamily void Doodle\+::reset\+Position (\begin{DoxyParamCaption}\item[{Ogre\+::\+Vector3}]{spawn\+Position }\end{DoxyParamCaption})}
+
+
+
+Reset doodle. 
+
+Used change doodle\textquotesingle{}s variables so game can be player again 
+\begin{DoxyParams}{Parameters}
+{\em } & Ogre\+::\+Vector3 where the player will spawn on reset \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_doodle_a7358ed9b5bc4074e8084b2855d38cfbf}\label{class_doodle_a7358ed9b5bc4074e8084b2855d38cfbf}} 
+\index{Doodle@{Doodle}!setIsFalling@{setIsFalling}}
+\index{setIsFalling@{setIsFalling}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{setIsFalling()}{setIsFalling()}}
+{\footnotesize\ttfamily void Doodle\+::set\+Is\+Falling (\begin{DoxyParamCaption}\item[{bool}]{a }\end{DoxyParamCaption})}
+
+
+
+Set is\+Falling ~\newline
+ 
+
+Used to control if doodle in game will move upwards or downwards 
+\begin{DoxyParams}{Parameters}
+{\em } & a bool \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_doodle_ac982693f6f9a0a8284969c13153c31c2}\label{class_doodle_ac982693f6f9a0a8284969c13153c31c2}} 
+\index{Doodle@{Doodle}!Update@{Update}}
+\index{Update@{Update}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Doodle\+::\+Update (\begin{DoxyParamCaption}\item[{Vector3}]{gravity,  }\item[{float}]{cameraY }\end{DoxyParamCaption})}
+
+
+
+Controls what happen during doodle\textquotesingle{}s update. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Ogre\+::\+Vector3 used to game\textquotesingle{}s gravity to doodle \\
+\hline
+{\em } & a float used to check if doodle is below a certain from the camera ~\newline
+ \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_doodle_a15879ef43c7f7155b05b18c099bfdda5}\label{class_doodle_a15879ef43c7f7155b05b18c099bfdda5}} 
+\index{Doodle@{Doodle}!showReset@{showReset}}
+\index{showReset@{showReset}!Doodle@{Doodle}}
+\doxysubsubsection{\texorpdfstring{showReset}{showReset}}
+{\footnotesize\ttfamily bool Doodle\+::show\+Reset}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_doodle_8h}{Doodle.\+h}}\item 
+\mbox{\hyperlink{_doodle_8cpp}{Doodle.\+cpp}}\end{DoxyCompactItemize}

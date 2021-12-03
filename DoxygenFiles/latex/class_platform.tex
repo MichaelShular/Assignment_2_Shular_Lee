@@ -1,0 +1,120 @@
+\hypertarget{class_platform}{}\doxysection{Platform Class Reference}
+\label{class_platform}\index{Platform@{Platform}}
+
+
+This class is used to create and control aspects the object platform.  
+
+
+
+
+{\ttfamily \#include $<$Platform.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_platform_ad0555772a6793558bfddf7677887d4b5}{Platform}} (Ogre\+::\+Scene\+Manager $\ast$sc\+Mgr, Scene\+Node $\ast$Scene\+Node, Ogre\+::\+Vector3 last\+Platform\+Position, String id)
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_platform_a13b5e4ef946b8a2fe38d22014145ab68}{$\sim$\+Platform}} ()
+\item 
+Ogre\+::\+Vector3 \mbox{\hyperlink{class_platform_a7c2f735d2b71c22da93a52f9cad927a6}{Get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Get position. \end{DoxyCompactList}\item 
+Axis\+Aligned\+Box \mbox{\hyperlink{class_platform_a19c7f7de1ec588cfb9c404a5e90cc6a5}{Get\+World\+AABB}} ()
+\begin{DoxyCompactList}\small\item\em Get platform\textquotesingle{}s world AABB box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_platform_aa336789b429a1a8bb21641bdaeb507e1}{set\+New\+Postion}} (float last\+Platform\+PostionY)
+\begin{DoxyCompactList}\small\item\em Used to move platforms above the current highest platform. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_platform_aaa3bbd4ca31e24797134a71a5f43571d}{reset\+Plaform\+Position}} (Ogre\+::\+Vector3 last\+Platform\+Position)
+\begin{DoxyCompactList}\small\item\em Reset platform. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create and control aspects the object platform. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_platform_ad0555772a6793558bfddf7677887d4b5}\label{class_platform_ad0555772a6793558bfddf7677887d4b5}} 
+\index{Platform@{Platform}!Platform@{Platform}}
+\index{Platform@{Platform}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{Platform()}{Platform()}}
+{\footnotesize\ttfamily Platform\+::\+Platform (\begin{DoxyParamCaption}\item[{Ogre\+::\+Scene\+Manager $\ast$}]{sc\+Mgr,  }\item[{Scene\+Node $\ast$}]{Scene\+Node,  }\item[{Ogre\+::\+Vector3}]{last\+Platform\+Position,  }\item[{String}]{id }\end{DoxyParamCaption})}
+
+
+
+The defualt conconstructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Scene\+Manager \\
+\hline
+{\em } & a Oger\+::\+Scene\+Node \\
+\hline
+{\em } & a Oger\+::\+Vector3 the position of the last platform \\
+\hline
+{\em } & a string used to create unique Scene\+Node ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_platform_a13b5e4ef946b8a2fe38d22014145ab68}\label{class_platform_a13b5e4ef946b8a2fe38d22014145ab68}} 
+\index{Platform@{Platform}!````~Platform@{$\sim$Platform}}
+\index{````~Platform@{$\sim$Platform}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{$\sim$Platform()}{~Platform()}}
+{\footnotesize\ttfamily Platform\+::$\sim$\+Platform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_platform_a7c2f735d2b71c22da93a52f9cad927a6}\label{class_platform_a7c2f735d2b71c22da93a52f9cad927a6}} 
+\index{Platform@{Platform}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily Ogre\+::\+Vector3 Platform\+::\+Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get position. 
+
+\begin{DoxyReturn}{Returns}
+a Oger\+::\+Vector3 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_platform_a19c7f7de1ec588cfb9c404a5e90cc6a5}\label{class_platform_a19c7f7de1ec588cfb9c404a5e90cc6a5}} 
+\index{Platform@{Platform}!GetWorldAABB@{GetWorldAABB}}
+\index{GetWorldAABB@{GetWorldAABB}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{GetWorldAABB()}{GetWorldAABB()}}
+{\footnotesize\ttfamily Axis\+Aligned\+Box Platform\+::\+Get\+World\+AABB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get platform\textquotesingle{}s world AABB box. 
+
+The platform\textquotesingle{}s AABB box will be used to check if it collides with doodle \begin{DoxyReturn}{Returns}
+Oger\+::\+Axis\+Aligned\+Box 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_platform_aaa3bbd4ca31e24797134a71a5f43571d}\label{class_platform_aaa3bbd4ca31e24797134a71a5f43571d}} 
+\index{Platform@{Platform}!resetPlaformPosition@{resetPlaformPosition}}
+\index{resetPlaformPosition@{resetPlaformPosition}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{resetPlaformPosition()}{resetPlaformPosition()}}
+{\footnotesize\ttfamily void Platform\+::reset\+Plaform\+Position (\begin{DoxyParamCaption}\item[{Ogre\+::\+Vector3}]{last\+Platform\+Position }\end{DoxyParamCaption})}
+
+
+
+Reset platform. 
+
+Used change platform postion so game can be played again \mbox{\Hypertarget{class_platform_aa336789b429a1a8bb21641bdaeb507e1}\label{class_platform_aa336789b429a1a8bb21641bdaeb507e1}} 
+\index{Platform@{Platform}!setNewPostion@{setNewPostion}}
+\index{setNewPostion@{setNewPostion}!Platform@{Platform}}
+\doxysubsubsection{\texorpdfstring{setNewPostion()}{setNewPostion()}}
+{\footnotesize\ttfamily void Platform\+::set\+New\+Postion (\begin{DoxyParamCaption}\item[{float}]{last\+Platform\+PostionY }\end{DoxyParamCaption})}
+
+
+
+Used to move platforms above the current highest platform. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Vector3 the position of the last platform \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_platform_8h}{Platform.\+h}}\item 
+\mbox{\hyperlink{_platform_8cpp}{Platform.\+cpp}}\end{DoxyCompactItemize}

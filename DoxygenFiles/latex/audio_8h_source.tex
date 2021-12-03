@@ -1,0 +1,37 @@
+\hypertarget{audio_8h_source}{}\doxysection{audio.\+h}
+\mbox{\hyperlink{audio_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef AUDIO\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define AUDIO\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <irrKlang.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }irrklang;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#pragma comment(lib, "{}irrKlang.lib"{}})}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_audio}{Audio}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}{Audio}}();}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_audio_ae8f54deecb5f48511aaab469e80294d6}{\string~Audio}}() \{\};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{static} \mbox{\hyperlink{class_audio}{Audio}}* \mbox{\hyperlink{class_audio_aa8f38ca9aec22bb16e6f973ff2dda894}{audio\_}};}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_audio_aad76d8cd0141ba47598dc1b2e326e49f}{Audio}}(\mbox{\hyperlink{class_audio}{Audio}}\& other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_a13036b654c23857e45476e43df0a89d9}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_audio}{Audio}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{22     \textcolor{keyword}{static} \mbox{\hyperlink{class_audio}{Audio}}* \mbox{\hyperlink{class_audio_a51dc9d19de19382bdcc5391107ddbae3}{GetInstance}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_a6319e29403f8a2d70d4717a2143a1f1d}{playSFX}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filepath);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_a638a6de38e24dca251f6f02e9d4b6db7}{playBGM}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *filepath);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_ac86ad8655d78ee323398b2a94e27d3ef}{setVolume}}(\textcolor{keywordtype}{float} amount);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_audio_aae4a632086a222d08910b01474ce8d1c}{stopAllSound}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30     ISoundEngine* engine; }
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

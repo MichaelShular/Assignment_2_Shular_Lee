@@ -1,0 +1,29 @@
+\hypertarget{_physics_8h_source}{}\doxysection{Physics.\+h}
+\mbox{\hyperlink{_physics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PHYSICS\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PHYSICS\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Ogre.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }Ogre;}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_physics}{Physics}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_physics_a4b2ebc0a344f04f48d227c72f0d0fbda}{Physics}}() \{\};}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_physics_a045c3788e28059d3920136499942490f}{\string~Physics}}() \{\};}
+\DoxyCodeLine{14     \textcolor{keyword}{static} \mbox{\hyperlink{class_physics}{Physics}}* \mbox{\hyperlink{class_physics_a55a6bb8f72e33c6e860afcead6ebd3b6}{physics\_}};}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_physics_a1e1753e7dcbf23d08555144f8b9946d3}{Physics}}(\mbox{\hyperlink{class_physics}{Physics}}\& other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_physics_ac6bbdbbb6f0f83106a85290e1c3257e2}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_physics}{Physics}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{18     \textcolor{keyword}{static} \mbox{\hyperlink{class_physics}{Physics}}* \mbox{\hyperlink{class_physics_a40352c3ec056138b30b2748ea5a31ef8}{GetInstance}}();}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_physics_abb03107477358dc1944b4dfc420a0b0a}{checkAAABB}}(AxisAlignedBox a, AxisAlignedBox b);}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_physics_a93e8ae4735d8039ce379c6972a49bdc4}{setGravity}}(Vector3 newGravity);}
+\DoxyCodeLine{21     Vector3 \mbox{\hyperlink{class_physics_a65584213333f281a491abea439ac8b14}{getGravity}}();}
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     Vector3 gravity;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

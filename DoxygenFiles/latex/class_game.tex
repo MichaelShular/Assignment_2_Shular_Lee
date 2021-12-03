@@ -1,0 +1,227 @@
+\hypertarget{class_game}{}\doxysection{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+This class is used to create and control the logic of the game.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_game_a72772b628443c3675976d6b5e6c9ec2a}{$\sim$\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_game_ae4618ba40eabbbe65e35f1bb239aa29b}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Used to set the class\textquotesingle{}s variables and create any other class instance need for the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_acc39660fc2452fc78ca45330d6032e5c}{create\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em Used to create objects that will be used. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a73744fbffd68a0ebadfedcecbfff3236}{create\+Camera}} ()
+\begin{DoxyCompactList}\small\item\em Used to create camera used in game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_a2ba00c3475d222573e5ad54b88b389b7}{key\+Pressed}} (const Keyboard\+Event \&evt)
+\begin{DoxyCompactList}\small\item\em Used to listen for what key is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_af5b56d4ec80bba41a21763b66603c0da}{create\+Frame\+Listener}} ()
+\begin{DoxyCompactList}\small\item\em Create Frame\+Lisener and add to root. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a769ca13961cb3f37a65e175f9d128793}{render\+One\+Frame}} ()
+\begin{DoxyCompactList}\small\item\em All game logic the need to happen in each frame. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_afdfe2fb017a5559a26ddb9c21ff9fc23}{create\+Tray\+Listener}} ()
+\begin{DoxyCompactList}\small\item\em Create all trays in the scene with what \mbox{\hyperlink{class_u_i}{UI}} objects are in them. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game}{Game}} $\ast$ \mbox{\hyperlink{class_game_a2ea14ab0326ada81800927c0df836c99}{Get\+Instance}} (Root $\ast$root, Scene\+Manager $\ast$scn, Camera $\ast$cam)
+\begin{DoxyCompactList}\small\item\em Used to get a single instance of the \mbox{\hyperlink{class_game}{Game}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ogre\+::\+Scene\+Node $\ast$ \mbox{\hyperlink{class_game_a6649cfbc93b184cdcdc10d72708d16a7}{Sinbad\+Node}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game}{Game}} $\ast$ \mbox{\hyperlink{class_game_a51f0610ecb77602373d7773450d11083}{\+\_\+game}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_a776acc7aeaf2edf36516e654f964408c}{Game}} (Root $\ast$root, Scene\+Manager $\ast$scn, Camera $\ast$cam)
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game}{Game}} $\ast$ \mbox{\hyperlink{class_game_af88934ba73c4ffe92b49dcc1421694ef}{application}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create and control the logic of the game. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_a776acc7aeaf2edf36516e654f964408c}\label{class_game_a776acc7aeaf2edf36516e654f964408c}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}\item[{Root $\ast$}]{root,  }\item[{Scene\+Manager $\ast$}]{scn,  }\item[{Camera $\ast$}]{cam }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The defualt conconstructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Scene\+Manager \\
+\hline
+{\em } & a Oger\+::\+Scene\+Node \\
+\hline
+{\em } & a Oger\+::\+Camera \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_a72772b628443c3675976d6b5e6c9ec2a}\label{class_game_a72772b628443c3675976d6b5e6c9ec2a}} 
+\index{Game@{Game}!````~Game@{$\sim$Game}}
+\index{````~Game@{$\sim$Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{$\sim$Game()}{~Game()}}
+{\footnotesize\ttfamily virtual Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_a73744fbffd68a0ebadfedcecbfff3236}\label{class_game_a73744fbffd68a0ebadfedcecbfff3236}} 
+\index{Game@{Game}!createCamera@{createCamera}}
+\index{createCamera@{createCamera}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createCamera()}{createCamera()}}
+{\footnotesize\ttfamily void Game\+::create\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Used to create camera used in game. 
+
+\mbox{[}camera\mbox{]}\mbox{\Hypertarget{class_game_af5b56d4ec80bba41a21763b66603c0da}\label{class_game_af5b56d4ec80bba41a21763b66603c0da}} 
+\index{Game@{Game}!createFrameListener@{createFrameListener}}
+\index{createFrameListener@{createFrameListener}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createFrameListener()}{createFrameListener()}}
+{\footnotesize\ttfamily void Game\+::create\+Frame\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create Frame\+Lisener and add to root. 
+
+\mbox{\Hypertarget{class_game_acc39660fc2452fc78ca45330d6032e5c}\label{class_game_acc39660fc2452fc78ca45330d6032e5c}} 
+\index{Game@{Game}!createScene@{createScene}}
+\index{createScene@{createScene}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createScene()}{createScene()}}
+{\footnotesize\ttfamily void Game\+::create\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Used to create objects that will be used. 
+
+\mbox{[}turnlights\mbox{]}
+
+\mbox{[}turnlights\mbox{]}
+
+\mbox{[}newlight\mbox{]}
+
+\mbox{[}newlight\mbox{]}
+
+\mbox{[}lightpos\mbox{]}
+
+\mbox{[}lightpos\mbox{]}\mbox{\Hypertarget{class_game_afdfe2fb017a5559a26ddb9c21ff9fc23}\label{class_game_afdfe2fb017a5559a26ddb9c21ff9fc23}} 
+\index{Game@{Game}!createTrayListener@{createTrayListener}}
+\index{createTrayListener@{createTrayListener}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createTrayListener()}{createTrayListener()}}
+{\footnotesize\ttfamily void Game\+::create\+Tray\+Listener (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create all trays in the scene with what \mbox{\hyperlink{class_u_i}{UI}} objects are in them. 
+
+\mbox{\Hypertarget{class_game_a2ea14ab0326ada81800927c0df836c99}\label{class_game_a2ea14ab0326ada81800927c0df836c99}} 
+\index{Game@{Game}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game}{Game}} $\ast$ Game\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{Root $\ast$}]{root,  }\item[{Scene\+Manager $\ast$}]{scn,  }\item[{Camera $\ast$}]{cam }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used to get a single instance of the \mbox{\hyperlink{class_game}{Game}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Scene\+Manager \\
+\hline
+{\em } & a Oger\+::\+Scene\+Node \\
+\hline
+{\em } & a Oger\+::\+Camera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created \mbox{\hyperlink{class_game}{Game}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a2ba00c3475d222573e5ad54b88b389b7}\label{class_game_a2ba00c3475d222573e5ad54b88b389b7}} 
+\index{Game@{Game}!keyPressed@{keyPressed}}
+\index{keyPressed@{keyPressed}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{keyPressed()}{keyPressed()}}
+{\footnotesize\ttfamily bool Game\+::key\+Pressed (\begin{DoxyParamCaption}\item[{const Keyboard\+Event \&}]{evt }\end{DoxyParamCaption})}
+
+
+
+Used to listen for what key is pressed. 
+
+\begin{DoxyReturn}{Returns}
+an bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a769ca13961cb3f37a65e175f9d128793}\label{class_game_a769ca13961cb3f37a65e175f9d128793}} 
+\index{Game@{Game}!renderOneFrame@{renderOneFrame}}
+\index{renderOneFrame@{renderOneFrame}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{renderOneFrame()}{renderOneFrame()}}
+{\footnotesize\ttfamily void Game\+::render\+One\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+All game logic the need to happen in each frame. 
+
+\mbox{\Hypertarget{class_game_ae4618ba40eabbbe65e35f1bb239aa29b}\label{class_game_ae4618ba40eabbbe65e35f1bb239aa29b}} 
+\index{Game@{Game}!setup@{setup}}
+\index{setup@{setup}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Game\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Used to set the class\textquotesingle{}s variables and create any other class instance need for the game. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_a51f0610ecb77602373d7773450d11083}\label{class_game_a51f0610ecb77602373d7773450d11083}} 
+\index{Game@{Game}!\_game@{\_game}}
+\index{\_game@{\_game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{\_game}{\_game}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game}{Game}} $\ast$ Game\+::\+\_\+game = nullptr\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_game_af88934ba73c4ffe92b49dcc1421694ef}\label{class_game_af88934ba73c4ffe92b49dcc1421694ef}} 
+\index{Game@{Game}!application@{application}}
+\index{application@{application}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{application}{application}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game}{Game}}$\ast$ Game\+::application\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_game_a6649cfbc93b184cdcdc10d72708d16a7}\label{class_game_a6649cfbc93b184cdcdc10d72708d16a7}} 
+\index{Game@{Game}!SinbadNode@{SinbadNode}}
+\index{SinbadNode@{SinbadNode}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{SinbadNode}{SinbadNode}}
+{\footnotesize\ttfamily Ogre\+::\+Scene\+Node$\ast$ Game\+::\+Sinbad\+Node}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_game_8h}{Game.\+h}}\item 
+\mbox{\hyperlink{_game_8cpp}{Game.\+cpp}}\end{DoxyCompactItemize}

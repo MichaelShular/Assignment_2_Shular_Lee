@@ -1,0 +1,43 @@
+\hypertarget{_u_i_8h_source}{}\doxysection{UI.\+h}
+\mbox{\hyperlink{_u_i_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef UI\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define UI\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Ogre.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}OgreTrays.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }Ogre;}
+\DoxyCodeLine{9 \textcolor{keyword}{using namespace }OgreBites;}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_u_i}{UI}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_u_i_ab76aadef6a777656835c7f896428b396}{UI}}(Ogre::RenderWindow* window, SceneManager* scnMgr, RenderQueueListener* newListener);}
+\DoxyCodeLine{15     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_u_i_a47e7b6111faba049dfee4738d067cc42}{\string~UI}}() \{\};}
+\DoxyCodeLine{16     \textcolor{keyword}{static} \mbox{\hyperlink{class_u_i}{UI}}* \mbox{\hyperlink{class_u_i_ae23a62db759811331059b89e3de15fbc}{ui\_}};}
+\DoxyCodeLine{17     }
+\DoxyCodeLine{18 \textcolor{keyword}{public}:    }
+\DoxyCodeLine{19     \mbox{\hyperlink{class_u_i_a207e824bb0eb66816f955750cb3cc696}{UI}}(\mbox{\hyperlink{class_u_i}{UI}}\& other) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_a23c2d0aef805a9ec30fd4e97ebd10603}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_u_i}{UI}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{21     \textcolor{keyword}{static} \mbox{\hyperlink{class_u_i}{UI}}* \mbox{\hyperlink{class_u_i_aaf6f3352fbb40e8b79488775bdc2b796}{GetInstance}}(Ogre::RenderWindow* window, SceneManager* scnMgr, RenderQueueListener* newListener);}
+\DoxyCodeLine{22     TrayManager* \mbox{\hyperlink{class_u_i_a19ccdb9256344cc32568010283df8f67}{addedTrayMgr}}(std::string name, \textcolor{keywordtype}{bool} isVisible);}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_a0ba4ab1a551378fda444f1f6281305e2}{addedFrameStatsToTray}}(\textcolor{keywordtype}{int} whichTray, TrayLocation position, \textcolor{keywordtype}{bool} showAllStats);}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_ab390af9a3ae561169edfea4f8ec6bec2}{addedLabelToTary}}(\textcolor{keywordtype}{int} whichTray, TrayLocation position, std::string name, std::string caption, \textcolor{keywordtype}{float} size);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_af334e478562ce634d9736b138a61738a}{addedButtonToTray}}(\textcolor{keywordtype}{int} whichTray, TrayLocation position, std::string name, std::string caption, \textcolor{keywordtype}{float} size);}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_a9db0c3d9d042b167df072cb88341f165}{setCaptionForLabel}}(\textcolor{keywordtype}{int} whichLabel, String newCaption);}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_u_i_aebf545a9d170cd15d82d1e64bf011a13}{setTrayVisibility}}(\textcolor{keywordtype}{int} whichLabel, \textcolor{keywordtype}{bool} isVisible);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_u_i_a3a2a734ec4232cbca22a81f6a14f7272}{getIsButtonPressed}}(\textcolor{keywordtype}{int} whichButton);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{private}:}
+\DoxyCodeLine{31     std::vector<TrayManager*> arrayTrayMgr;}
+\DoxyCodeLine{32     Ogre::RenderWindow* mWindow; }
+\DoxyCodeLine{33     SceneManager* mScnMgr; }
+\DoxyCodeLine{34     RenderQueueListener* mNewListener;}
+\DoxyCodeLine{35     std::vector<Label*> arrayLabel;}
+\DoxyCodeLine{36     std::vector<Button*> arrayButton;}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif }}
+
+\end{DoxyCode}

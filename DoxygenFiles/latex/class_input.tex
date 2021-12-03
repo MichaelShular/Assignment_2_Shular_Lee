@@ -1,0 +1,188 @@
+\hypertarget{class_input}{}\doxysection{Input Class Reference}
+\label{class_input}\index{Input@{Input}}
+
+
+This class is used to create and control the user\textquotesingle{}s inputs.  
+
+
+
+
+{\ttfamily \#include $<$Input.\+h$>$}
+
+Inheritance diagram for Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_input}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_a858734bd882f676b323876b7a0ce2e7a}{Input}} (\mbox{\hyperlink{class_input}{Input}} \&other)=delete
+\item 
+void \mbox{\hyperlink{class_input_ae3cc20d44cb886789c340bad77464718}{operator=}} (const \mbox{\hyperlink{class_input}{Input}} \&)=delete
+\item 
+bool \mbox{\hyperlink{class_input_a8762fbaddf9d2f398401e1706a94896e}{Update}} (const Ogre\+Bites\+::\+Keyboard\+Event \&evt)
+\begin{DoxyCompactList}\small\item\em Update which was the last key pressed in this frame. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_a3e34dab024b247e3e70506a8c4761926}{check\+If\+Key\+Being\+Pressed}} (char key\+Type)
+\begin{DoxyCompactList}\small\item\em Check if inputed key was pressed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_a63784250a9c7ef530980685306524974}{check\+If\+Key\+Being\+Pressed}} (int key\+Type)
+\begin{DoxyCompactList}\small\item\em Check if inputed key was pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_a8bec96dd53baf5ec754c199af3c957c8}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset current\+Key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_input}{Input}} $\ast$ \mbox{\hyperlink{class_input_a1b78bcd8343154fb241e55e0ee78d5d3}{Get\+Instance}} (Root $\ast$root)
+\begin{DoxyCompactList}\small\item\em Used to get a single instance of the \mbox{\hyperlink{class_input}{Input}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_a784fb93c48219cdfd11898fffe38c90c}{Input}} (Root $\ast$root)
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_input_af2db35ba67c8a8ccd23bef6a482fc291}{$\sim$\+Input}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_input}{Input}} $\ast$ \mbox{\hyperlink{class_input_a9fb2fdca2c59ddb667d904a5fca8844f}{input\+\_\+}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create and control the user\textquotesingle{}s inputs. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_input_a784fb93c48219cdfd11898fffe38c90c}\label{class_input_a784fb93c48219cdfd11898fffe38c90c}} 
+\index{Input@{Input}!Input@{Input}}
+\index{Input@{Input}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Input\+::\+Input (\begin{DoxyParamCaption}\item[{Root $\ast$}]{root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The defualt conconstructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Root \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_input_af2db35ba67c8a8ccd23bef6a482fc291}\label{class_input_af2db35ba67c8a8ccd23bef6a482fc291}} 
+\index{Input@{Input}!````~Input@{$\sim$Input}}
+\index{````~Input@{$\sim$Input}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{$\sim$Input()}{~Input()}}
+{\footnotesize\ttfamily Input\+::$\sim$\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_input_a858734bd882f676b323876b7a0ce2e7a}\label{class_input_a858734bd882f676b323876b7a0ce2e7a}} 
+\index{Input@{Input}!Input@{Input}}
+\index{Input@{Input}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{Input()}{Input()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Input\+::\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input}{Input}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_input_a3e34dab024b247e3e70506a8c4761926}\label{class_input_a3e34dab024b247e3e70506a8c4761926}} 
+\index{Input@{Input}!checkIfKeyBeingPressed@{checkIfKeyBeingPressed}}
+\index{checkIfKeyBeingPressed@{checkIfKeyBeingPressed}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{checkIfKeyBeingPressed()}{checkIfKeyBeingPressed()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Input\+::check\+If\+Key\+Being\+Pressed (\begin{DoxyParamCaption}\item[{char}]{key\+Type }\end{DoxyParamCaption})}
+
+
+
+Check if inputed key was pressed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a char of key need to be ckecked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_a63784250a9c7ef530980685306524974}\label{class_input_a63784250a9c7ef530980685306524974}} 
+\index{Input@{Input}!checkIfKeyBeingPressed@{checkIfKeyBeingPressed}}
+\index{checkIfKeyBeingPressed@{checkIfKeyBeingPressed}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{checkIfKeyBeingPressed()}{checkIfKeyBeingPressed()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Input\+::check\+If\+Key\+Being\+Pressed (\begin{DoxyParamCaption}\item[{int}]{key\+Type }\end{DoxyParamCaption})}
+
+
+
+Check if inputed key was pressed. 
+
+Used for Ogre\+Bites enum of differnt keys 
+\begin{DoxyParams}{Parameters}
+{\em } & a int of key need to be ckecked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_a1b78bcd8343154fb241e55e0ee78d5d3}\label{class_input_a1b78bcd8343154fb241e55e0ee78d5d3}} 
+\index{Input@{Input}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_input}{Input}} $\ast$ Input\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{Root $\ast$}]{root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used to get a single instance of the \mbox{\hyperlink{class_input}{Input}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::\+Root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created \mbox{\hyperlink{class_game}{Game}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_ae3cc20d44cb886789c340bad77464718}\label{class_input_ae3cc20d44cb886789c340bad77464718}} 
+\index{Input@{Input}!operator=@{operator=}}
+\index{operator=@{operator=}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Input\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_input}{Input}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_input_a8bec96dd53baf5ec754c199af3c957c8}\label{class_input_a8bec96dd53baf5ec754c199af3c957c8}} 
+\index{Input@{Input}!reset@{reset}}
+\index{reset@{reset}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Input\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset current\+Key. 
+
+Put at the end of update and use a button that the game is not using \mbox{\Hypertarget{class_input_a8762fbaddf9d2f398401e1706a94896e}\label{class_input_a8762fbaddf9d2f398401e1706a94896e}} 
+\index{Input@{Input}!Update@{Update}}
+\index{Update@{Update}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool Input\+::\+Update (\begin{DoxyParamCaption}\item[{const Ogre\+Bites\+::\+Keyboard\+Event \&}]{evt }\end{DoxyParamCaption})}
+
+
+
+Update which was the last key pressed in this frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Ogre\+Bites\+::\+Keyboard\+Event\& \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_input_a9fb2fdca2c59ddb667d904a5fca8844f}\label{class_input_a9fb2fdca2c59ddb667d904a5fca8844f}} 
+\index{Input@{Input}!input\_@{input\_}}
+\index{input\_@{input\_}!Input@{Input}}
+\doxysubsubsection{\texorpdfstring{input\_}{input\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_input}{Input}} $\ast$ Input\+::input\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_input_8h}{Input.\+h}}\item 
+\mbox{\hyperlink{_input_8cpp}{Input.\+cpp}}\end{DoxyCompactItemize}

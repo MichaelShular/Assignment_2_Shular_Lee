@@ -1,0 +1,197 @@
+\hypertarget{class_application}{}\doxysection{Application Class Reference}
+\label{class_application}\index{Application@{Application}}
+
+
+This class is used to control the start of the application and logic flow with in the application.  
+
+
+
+
+{\ttfamily \#include $<$Application.\+h$>$}
+
+Inheritance diagram for Application\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_application}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_application_ac3d35f15460c28556d539612461cddb5}{operator=}} (const \mbox{\hyperlink{class_application}{Application}} \&)=delete
+\item 
+int \mbox{\hyperlink{class_application_a02799e64b246a6b6b8fa58477882a4be}{Run}} ()
+\begin{DoxyCompactList}\small\item\em Makes a routine for the application until application is done running. \end{DoxyCompactList}\item 
+bool \& \mbox{\hyperlink{class_application_a3a47b3789cab201c0dc9243edbaa8486}{Running}} ()
+\begin{DoxyCompactList}\small\item\em Check if application is still updating. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_application_a31dd3f7f8fba9fc2fd32ceaff6ce36e7}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the class\textquotesingle{}s variables and create an Instance of the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_application_af350d54cb0dd2c0c8a2e9f01fe384057}{Wake}} ()
+\begin{DoxyCompactList}\small\item\em Set the start time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_application_a8126de1bc7917f6160f026619358d020}{Sleep}} ()
+\begin{DoxyCompactList}\small\item\em Lock the FPS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_application_a955518f4367c5844d1e3b8cef380ff25}{Handle\+Events}} ()
+\item 
+bool \mbox{\hyperlink{class_application_af15647ac973ce1c2f661d5fb61bafdbf}{Update}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_game}{Game}} Update. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_application_a75febcb5d127ef877dcd39fea0b9210c}{Clean}} ()
+\item 
+void \mbox{\hyperlink{class_application_a18ce60ff74485344dcf36759dfa7f0e9}{set\+Is\+Running}} (bool a)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_application}{Application}} $\ast$ \mbox{\hyperlink{class_application_a0e2b7844cd6d6134c9109f1e6a242eed}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Used to get a single instance of the application class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_application_afa8cc05ce6b6092be5ecdfdae44e05f8}{Application}} ()
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_application}{Application}} $\ast$ \mbox{\hyperlink{class_application_ab814686facd929e38ef435a4d7c9847e}{app}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to control the start of the application and logic flow with in the application. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_application_afa8cc05ce6b6092be5ecdfdae44e05f8}\label{class_application_afa8cc05ce6b6092be5ecdfdae44e05f8}} 
+\index{Application@{Application}!Application@{Application}}
+\index{Application@{Application}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Application()}{Application()}}
+{\footnotesize\ttfamily Application\+::\+Application (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+The defualt conconstructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_application_a75febcb5d127ef877dcd39fea0b9210c}\label{class_application_a75febcb5d127ef877dcd39fea0b9210c}} 
+\index{Application@{Application}!Clean@{Clean}}
+\index{Clean@{Clean}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Clean()}{Clean()}}
+{\footnotesize\ttfamily void Application\+::\+Clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_application_a0e2b7844cd6d6134c9109f1e6a242eed}\label{class_application_a0e2b7844cd6d6134c9109f1e6a242eed}} 
+\index{Application@{Application}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_application}{Application}} $\ast$ Application\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Used to get a single instance of the application class. 
+
+\begin{DoxyReturn}{Returns}
+the created \mbox{\hyperlink{class_application}{Application}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a955518f4367c5844d1e3b8cef380ff25}\label{class_application_a955518f4367c5844d1e3b8cef380ff25}} 
+\index{Application@{Application}!HandleEvents@{HandleEvents}}
+\index{HandleEvents@{HandleEvents}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{HandleEvents()}{HandleEvents()}}
+{\footnotesize\ttfamily void Application\+::\+Handle\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_application_ac3d35f15460c28556d539612461cddb5}\label{class_application_ac3d35f15460c28556d539612461cddb5}} 
+\index{Application@{Application}!operator=@{operator=}}
+\index{operator=@{operator=}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Application\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_application}{Application}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_application_a02799e64b246a6b6b8fa58477882a4be}\label{class_application_a02799e64b246a6b6b8fa58477882a4be}} 
+\index{Application@{Application}!Run@{Run}}
+\index{Run@{Run}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily int Application\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Makes a routine for the application until application is done running. 
+
+\begin{DoxyReturn}{Returns}
+an int 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a3a47b3789cab201c0dc9243edbaa8486}\label{class_application_a3a47b3789cab201c0dc9243edbaa8486}} 
+\index{Application@{Application}!Running@{Running}}
+\index{Running@{Running}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Running()}{Running()}}
+{\footnotesize\ttfamily bool \& Application\+::\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check if application is still updating. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_a18ce60ff74485344dcf36759dfa7f0e9}\label{class_application_a18ce60ff74485344dcf36759dfa7f0e9}} 
+\index{Application@{Application}!setIsRunning@{setIsRunning}}
+\index{setIsRunning@{setIsRunning}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{setIsRunning()}{setIsRunning()}}
+{\footnotesize\ttfamily void Application\+::set\+Is\+Running (\begin{DoxyParamCaption}\item[{bool}]{a }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_application_a31dd3f7f8fba9fc2fd32ceaff6ce36e7}\label{class_application_a31dd3f7f8fba9fc2fd32ceaff6ce36e7}} 
+\index{Application@{Application}!setup@{setup}}
+\index{setup@{setup}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void Application\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the class\textquotesingle{}s variables and create an Instance of the game. 
+
+\mbox{\Hypertarget{class_application_a8126de1bc7917f6160f026619358d020}\label{class_application_a8126de1bc7917f6160f026619358d020}} 
+\index{Application@{Application}!Sleep@{Sleep}}
+\index{Sleep@{Sleep}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Sleep()}{Sleep()}}
+{\footnotesize\ttfamily void Application\+::\+Sleep (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lock the FPS. 
+
+Used to lock the appliaction to a consistent frame rate bewteen updates ~\newline
+ \mbox{\Hypertarget{class_application_af15647ac973ce1c2f661d5fb61bafdbf}\label{class_application_af15647ac973ce1c2f661d5fb61bafdbf}} 
+\index{Application@{Application}!Update@{Update}}
+\index{Update@{Update}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily bool Application\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_game}{Game}} Update. 
+
+Updates one frame of the game instance \begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_application_af350d54cb0dd2c0c8a2e9f01fe384057}\label{class_application_af350d54cb0dd2c0c8a2e9f01fe384057}} 
+\index{Application@{Application}!Wake@{Wake}}
+\index{Wake@{Wake}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{Wake()}{Wake()}}
+{\footnotesize\ttfamily void Application\+::\+Wake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set the start time. 
+
+Setting the time for when the next frame is started within function \mbox{\hyperlink{class_application_a02799e64b246a6b6b8fa58477882a4be}{Application\+::\+Run}} ~\newline
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_application_ab814686facd929e38ef435a4d7c9847e}\label{class_application_ab814686facd929e38ef435a4d7c9847e}} 
+\index{Application@{Application}!app@{app}}
+\index{app@{app}!Application@{Application}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_application}{Application}} $\ast$ Application\+::app = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_application_8h}{Application.\+h}}\item 
+\mbox{\hyperlink{_application_8cpp}{Application.\+cpp}}\end{DoxyCompactItemize}

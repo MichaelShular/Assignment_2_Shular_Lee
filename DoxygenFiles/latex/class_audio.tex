@@ -1,0 +1,163 @@
+\hypertarget{class_audio}{}\doxysection{Audio Class Reference}
+\label{class_audio}\index{Audio@{Audio}}
+
+
+This class is used to control the game\textquotesingle{}s audio.  
+
+
+
+
+{\ttfamily \#include $<$audio.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_audio_aad76d8cd0141ba47598dc1b2e326e49f}{Audio}} (\mbox{\hyperlink{class_audio}{Audio}} \&other)=delete
+\item 
+void \mbox{\hyperlink{class_audio_a13036b654c23857e45476e43df0a89d9}{operator=}} (const \mbox{\hyperlink{class_audio}{Audio}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_audio_a6319e29403f8a2d70d4717a2143a1f1d}{play\+SFX}} (const char $\ast$filepath)
+\begin{DoxyCompactList}\small\item\em Used play a single instance of a sound file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_audio_a638a6de38e24dca251f6f02e9d4b6db7}{play\+BGM}} (const char $\ast$filepath)
+\begin{DoxyCompactList}\small\item\em Used play a loop of a sound file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_audio_ac86ad8655d78ee323398b2a94e27d3ef}{set\+Volume}} (float amount)
+\begin{DoxyCompactList}\small\item\em Used to set the Volume within the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_audio_aae4a632086a222d08910b01474ce8d1c}{stop\+All\+Sound}} ()
+\begin{DoxyCompactList}\small\item\em Stop all sounds playing in the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_audio_a51dc9d19de19382bdcc5391107ddbae3}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Used to get a single instance of the \mbox{\hyperlink{class_audio}{Audio}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}{Audio}} ()
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_audio_ae8f54deecb5f48511aaab469e80294d6}{$\sim$\+Audio}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_audio}{Audio}} $\ast$ \mbox{\hyperlink{class_audio_aa8f38ca9aec22bb16e6f973ff2dda894}{audio\+\_\+}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to control the game\textquotesingle{}s audio. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}\label{class_audio_aa9d3935a2b91ab4b825bc0cb05f245ea}} 
+\index{Audio@{Audio}!Audio@{Audio}}
+\index{Audio@{Audio}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Audio()}{Audio()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Audio\+::\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The defualt conconstructor. 
+
+\mbox{\Hypertarget{class_audio_ae8f54deecb5f48511aaab469e80294d6}\label{class_audio_ae8f54deecb5f48511aaab469e80294d6}} 
+\index{Audio@{Audio}!````~Audio@{$\sim$Audio}}
+\index{````~Audio@{$\sim$Audio}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{$\sim$Audio()}{~Audio()}}
+{\footnotesize\ttfamily Audio\+::$\sim$\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_audio_aad76d8cd0141ba47598dc1b2e326e49f}\label{class_audio_aad76d8cd0141ba47598dc1b2e326e49f}} 
+\index{Audio@{Audio}!Audio@{Audio}}
+\index{Audio@{Audio}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{Audio()}{Audio()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Audio\+::\+Audio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_audio}{Audio}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_audio_a51dc9d19de19382bdcc5391107ddbae3}\label{class_audio_a51dc9d19de19382bdcc5391107ddbae3}} 
+\index{Audio@{Audio}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Audio\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used to get a single instance of the \mbox{\hyperlink{class_audio}{Audio}} class. 
+
+\begin{DoxyReturn}{Returns}
+the created \mbox{\hyperlink{class_audio}{Audio}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_audio_a13036b654c23857e45476e43df0a89d9}\label{class_audio_a13036b654c23857e45476e43df0a89d9}} 
+\index{Audio@{Audio}!operator=@{operator=}}
+\index{operator=@{operator=}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void Audio\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_audio}{Audio}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_audio_a638a6de38e24dca251f6f02e9d4b6db7}\label{class_audio_a638a6de38e24dca251f6f02e9d4b6db7}} 
+\index{Audio@{Audio}!playBGM@{playBGM}}
+\index{playBGM@{playBGM}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{playBGM()}{playBGM()}}
+{\footnotesize\ttfamily void Audio\+::play\+BGM (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Used play a loop of a sound file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a const char of the location of the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_audio_a6319e29403f8a2d70d4717a2143a1f1d}\label{class_audio_a6319e29403f8a2d70d4717a2143a1f1d}} 
+\index{Audio@{Audio}!playSFX@{playSFX}}
+\index{playSFX@{playSFX}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{playSFX()}{playSFX()}}
+{\footnotesize\ttfamily void Audio\+::play\+SFX (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Used play a single instance of a sound file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a const char of the location of the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_audio_ac86ad8655d78ee323398b2a94e27d3ef}\label{class_audio_ac86ad8655d78ee323398b2a94e27d3ef}} 
+\index{Audio@{Audio}!setVolume@{setVolume}}
+\index{setVolume@{setVolume}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{setVolume()}{setVolume()}}
+{\footnotesize\ttfamily void Audio\+::set\+Volume (\begin{DoxyParamCaption}\item[{float}]{amount }\end{DoxyParamCaption})}
+
+
+
+Used to set the Volume within the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a float \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_audio_aae4a632086a222d08910b01474ce8d1c}\label{class_audio_aae4a632086a222d08910b01474ce8d1c}} 
+\index{Audio@{Audio}!stopAllSound@{stopAllSound}}
+\index{stopAllSound@{stopAllSound}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{stopAllSound()}{stopAllSound()}}
+{\footnotesize\ttfamily void Audio\+::stop\+All\+Sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop all sounds playing in the game. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_audio_aa8f38ca9aec22bb16e6f973ff2dda894}\label{class_audio_aa8f38ca9aec22bb16e6f973ff2dda894}} 
+\index{Audio@{Audio}!audio\_@{audio\_}}
+\index{audio\_@{audio\_}!Audio@{Audio}}
+\doxysubsubsection{\texorpdfstring{audio\_}{audio\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_audio}{Audio}} $\ast$ Audio\+::audio\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{audio_8h}{audio.\+h}}\item 
+\mbox{\hyperlink{audio_8cpp}{audio.\+cpp}}\end{DoxyCompactItemize}

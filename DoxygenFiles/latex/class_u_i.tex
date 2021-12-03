@@ -1,0 +1,274 @@
+\hypertarget{class_u_i}{}\doxysection{UI Class Reference}
+\label{class_u_i}\index{UI@{UI}}
+
+
+This class is used to create and control \mbox{\hyperlink{class_u_i}{UI}} elements.  
+
+
+
+
+{\ttfamily \#include $<$UI.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_a207e824bb0eb66816f955750cb3cc696}{UI}} (\mbox{\hyperlink{class_u_i}{UI}} \&other)=delete
+\item 
+void \mbox{\hyperlink{class_u_i_a23c2d0aef805a9ec30fd4e97ebd10603}{operator=}} (const \mbox{\hyperlink{class_u_i}{UI}} \&)=delete
+\item 
+Tray\+Manager $\ast$ \mbox{\hyperlink{class_u_i_a19ccdb9256344cc32568010283df8f67}{added\+Tray\+Mgr}} (std\+::string name, bool is\+Visible)
+\begin{DoxyCompactList}\small\item\em Used create a new tray. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a0ba4ab1a551378fda444f1f6281305e2}{added\+Frame\+Stats\+To\+Tray}} (int which\+Tray, Tray\+Location position, bool show\+All\+Stats)
+\begin{DoxyCompactList}\small\item\em Add Frame\+Stats to tray. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_ab390af9a3ae561169edfea4f8ec6bec2}{added\+Label\+To\+Tary}} (int which\+Tray, Tray\+Location position, std\+::string name, std\+::string caption, float size)
+\begin{DoxyCompactList}\small\item\em Add Ogre\+Bites\+::\+Label to tray. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_af334e478562ce634d9736b138a61738a}{added\+Button\+To\+Tray}} (int which\+Tray, Tray\+Location position, std\+::string name, std\+::string caption, float size)
+\begin{DoxyCompactList}\small\item\em Add Ogre\+Bites\+::\+Button to tray. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_a9db0c3d9d042b167df072cb88341f165}{set\+Caption\+For\+Label}} (int which\+Label, String new\+Caption)
+\begin{DoxyCompactList}\small\item\em set Labels caption \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_u_i_aebf545a9d170cd15d82d1e64bf011a13}{set\+Tray\+Visibility}} (int which\+Label, bool is\+Visible)
+\begin{DoxyCompactList}\small\item\em set tray visability ~\newline
+ \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_u_i_a3a2a734ec4232cbca22a81f6a14f7272}{get\+Is\+Button\+Pressed}} (int which\+Button)
+\begin{DoxyCompactList}\small\item\em get button state ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_u_i}{UI}} $\ast$ \mbox{\hyperlink{class_u_i_aaf6f3352fbb40e8b79488775bdc2b796}{Get\+Instance}} (Ogre\+::\+Render\+Window $\ast$window, Scene\+Manager $\ast$scn\+Mgr, Render\+Queue\+Listener $\ast$new\+Listener)
+\begin{DoxyCompactList}\small\item\em Used to get a single instance of the \mbox{\hyperlink{class_u_i}{UI}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_ab76aadef6a777656835c7f896428b396}{UI}} (Ogre\+::\+Render\+Window $\ast$window, Scene\+Manager $\ast$scn\+Mgr, Render\+Queue\+Listener $\ast$new\+Listener)
+\begin{DoxyCompactList}\small\item\em The defualt conconstructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_u_i_a47e7b6111faba049dfee4738d067cc42}{$\sim$\+UI}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_u_i}{UI}} $\ast$ \mbox{\hyperlink{class_u_i_ae23a62db759811331059b89e3de15fbc}{ui\+\_\+}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to create and control \mbox{\hyperlink{class_u_i}{UI}} elements. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_u_i_ab76aadef6a777656835c7f896428b396}\label{class_u_i_ab76aadef6a777656835c7f896428b396}} 
+\index{UI@{UI}!UI@{UI}}
+\index{UI@{UI}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{UI()}{UI()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily UI\+::\+UI (\begin{DoxyParamCaption}\item[{Ogre\+::\+Render\+Window $\ast$}]{window,  }\item[{Scene\+Manager $\ast$}]{scn\+Mgr,  }\item[{Render\+Queue\+Listener $\ast$}]{new\+Listener }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The defualt conconstructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::window \\
+\hline
+{\em } & a Oger\+::\+Scene\+Manager \\
+\hline
+{\em } & a Oger\+::\+Render\+Queue\+Listener \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a47e7b6111faba049dfee4738d067cc42}\label{class_u_i_a47e7b6111faba049dfee4738d067cc42}} 
+\index{UI@{UI}!````~UI@{$\sim$UI}}
+\index{````~UI@{$\sim$UI}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{$\sim$UI()}{~UI()}}
+{\footnotesize\ttfamily virtual UI\+::$\sim$\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_u_i_a207e824bb0eb66816f955750cb3cc696}\label{class_u_i_a207e824bb0eb66816f955750cb3cc696}} 
+\index{UI@{UI}!UI@{UI}}
+\index{UI@{UI}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{UI()}{UI()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily UI\+::\+UI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_u_i}{UI}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_af334e478562ce634d9736b138a61738a}\label{class_u_i_af334e478562ce634d9736b138a61738a}} 
+\index{UI@{UI}!addedButtonToTray@{addedButtonToTray}}
+\index{addedButtonToTray@{addedButtonToTray}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{addedButtonToTray()}{addedButtonToTray()}}
+{\footnotesize\ttfamily void UI\+::added\+Button\+To\+Tray (\begin{DoxyParamCaption}\item[{int}]{which\+Tray,  }\item[{Tray\+Location}]{position,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{caption,  }\item[{float}]{size }\end{DoxyParamCaption})}
+
+
+
+Add Ogre\+Bites\+::\+Button to tray. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a int of which tray in the array \\
+\hline
+{\em } & a Ogre\+Bites\+::\+Tray\+Location \\
+\hline
+{\em } & a string for unique identification \\
+\hline
+{\em } & a string for caption \\
+\hline
+{\em } & a float for size of button \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a0ba4ab1a551378fda444f1f6281305e2}\label{class_u_i_a0ba4ab1a551378fda444f1f6281305e2}} 
+\index{UI@{UI}!addedFrameStatsToTray@{addedFrameStatsToTray}}
+\index{addedFrameStatsToTray@{addedFrameStatsToTray}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{addedFrameStatsToTray()}{addedFrameStatsToTray()}}
+{\footnotesize\ttfamily void UI\+::added\+Frame\+Stats\+To\+Tray (\begin{DoxyParamCaption}\item[{int}]{which\+Tray,  }\item[{Tray\+Location}]{position,  }\item[{bool}]{show\+All\+Stats }\end{DoxyParamCaption})}
+
+
+
+Add Frame\+Stats to tray. 
+
+Frame\+Stats is a \mbox{\hyperlink{class_u_i}{UI}} element that come with ogre 
+\begin{DoxyParams}{Parameters}
+{\em } & a int of which tray in the array \\
+\hline
+{\em } & a Ogre\+Bites\+::\+Tray\+Location \\
+\hline
+{\em } & a bool ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_ab390af9a3ae561169edfea4f8ec6bec2}\label{class_u_i_ab390af9a3ae561169edfea4f8ec6bec2}} 
+\index{UI@{UI}!addedLabelToTary@{addedLabelToTary}}
+\index{addedLabelToTary@{addedLabelToTary}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{addedLabelToTary()}{addedLabelToTary()}}
+{\footnotesize\ttfamily void UI\+::added\+Label\+To\+Tary (\begin{DoxyParamCaption}\item[{int}]{which\+Tray,  }\item[{Tray\+Location}]{position,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{caption,  }\item[{float}]{size }\end{DoxyParamCaption})}
+
+
+
+Add Ogre\+Bites\+::\+Label to tray. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a int of which tray in the array \\
+\hline
+{\em } & a Ogre\+Bites\+::\+Tray\+Location \\
+\hline
+{\em } & a string for unique identification \\
+\hline
+{\em } & a string for caption \\
+\hline
+{\em } & a float for size of label \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_a19ccdb9256344cc32568010283df8f67}\label{class_u_i_a19ccdb9256344cc32568010283df8f67}} 
+\index{UI@{UI}!addedTrayMgr@{addedTrayMgr}}
+\index{addedTrayMgr@{addedTrayMgr}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{addedTrayMgr()}{addedTrayMgr()}}
+{\footnotesize\ttfamily Tray\+Manager $\ast$ UI\+::added\+Tray\+Mgr (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{bool}]{is\+Visible }\end{DoxyParamCaption})}
+
+
+
+Used create a new tray. 
+
+Can create multiple trays to differnet \mbox{\hyperlink{class_u_i}{UI}} elements 
+\begin{DoxyParams}{Parameters}
+{\em } & a string \\
+\hline
+{\em } & a bool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created tray 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_aaf6f3352fbb40e8b79488775bdc2b796}\label{class_u_i_aaf6f3352fbb40e8b79488775bdc2b796}} 
+\index{UI@{UI}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i}{UI}} $\ast$ UI\+::\+Get\+Instance (\begin{DoxyParamCaption}\item[{Ogre\+::\+Render\+Window $\ast$}]{window,  }\item[{Scene\+Manager $\ast$}]{scn\+Mgr,  }\item[{Render\+Queue\+Listener $\ast$}]{new\+Listener }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used to get a single instance of the \mbox{\hyperlink{class_u_i}{UI}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a Oger\+::window \\
+\hline
+{\em } & a Oger\+::\+Scene\+Manager \\
+\hline
+{\em } & a Oger\+::\+Render\+Queue\+Listener \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the created \mbox{\hyperlink{class_u_i}{UI}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_a3a2a734ec4232cbca22a81f6a14f7272}\label{class_u_i_a3a2a734ec4232cbca22a81f6a14f7272}} 
+\index{UI@{UI}!getIsButtonPressed@{getIsButtonPressed}}
+\index{getIsButtonPressed@{getIsButtonPressed}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{getIsButtonPressed()}{getIsButtonPressed()}}
+{\footnotesize\ttfamily bool UI\+::get\+Is\+Button\+Pressed (\begin{DoxyParamCaption}\item[{int}]{which\+Button }\end{DoxyParamCaption})}
+
+
+
+get button state ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a int of which button in the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a bool is being pressed or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_u_i_a23c2d0aef805a9ec30fd4e97ebd10603}\label{class_u_i_a23c2d0aef805a9ec30fd4e97ebd10603}} 
+\index{UI@{UI}!operator=@{operator=}}
+\index{operator=@{operator=}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily void UI\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_u_i}{UI}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{class_u_i_a9db0c3d9d042b167df072cb88341f165}\label{class_u_i_a9db0c3d9d042b167df072cb88341f165}} 
+\index{UI@{UI}!setCaptionForLabel@{setCaptionForLabel}}
+\index{setCaptionForLabel@{setCaptionForLabel}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{setCaptionForLabel()}{setCaptionForLabel()}}
+{\footnotesize\ttfamily void UI\+::set\+Caption\+For\+Label (\begin{DoxyParamCaption}\item[{int}]{which\+Label,  }\item[{String}]{new\+Caption }\end{DoxyParamCaption})}
+
+
+
+set Labels caption 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a int of which label in the array \\
+\hline
+{\em } & a string for caption \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_aebf545a9d170cd15d82d1e64bf011a13}\label{class_u_i_aebf545a9d170cd15d82d1e64bf011a13}} 
+\index{UI@{UI}!setTrayVisibility@{setTrayVisibility}}
+\index{setTrayVisibility@{setTrayVisibility}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{setTrayVisibility()}{setTrayVisibility()}}
+{\footnotesize\ttfamily void UI\+::set\+Tray\+Visibility (\begin{DoxyParamCaption}\item[{int}]{which\+Tray,  }\item[{bool}]{is\+Visible }\end{DoxyParamCaption})}
+
+
+
+set tray visability ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & a int of which tray in the array \\
+\hline
+{\em } & a bool is\+Visable \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_u_i_ae23a62db759811331059b89e3de15fbc}\label{class_u_i_ae23a62db759811331059b89e3de15fbc}} 
+\index{UI@{UI}!ui\_@{ui\_}}
+\index{ui\_@{ui\_}!UI@{UI}}
+\doxysubsubsection{\texorpdfstring{ui\_}{ui\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_u_i}{UI}} $\ast$ UI\+::ui\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_u_i_8h}{UI.\+h}}\item 
+\mbox{\hyperlink{_u_i_8cpp}{UI.\+cpp}}\end{DoxyCompactItemize}

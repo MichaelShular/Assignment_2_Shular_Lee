@@ -1,0 +1,30 @@
+\hypertarget{_platform_8h_source}{}\doxysection{Platform.\+h}
+\mbox{\hyperlink{_platform_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef PLATFORM\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define PLATFORM\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Ogre.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }Ogre;}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_platform}{Platform}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_platform_ad0555772a6793558bfddf7677887d4b5}{Platform}}(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 lastPlatformPosition, String \textcolor{keywordtype}{id});}
+\DoxyCodeLine{12     \mbox{\hyperlink{class_platform_a13b5e4ef946b8a2fe38d22014145ab68}{\string~Platform}}() \{\};}
+\DoxyCodeLine{13     Ogre::Vector3 \mbox{\hyperlink{class_platform_a7c2f735d2b71c22da93a52f9cad927a6}{GetPosition}}();}
+\DoxyCodeLine{14     AxisAlignedBox \mbox{\hyperlink{class_platform_a19c7f7de1ec588cfb9c404a5e90cc6a5}{GetWorldAABB}}();}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_platform_aa336789b429a1a8bb21641bdaeb507e1}{setNewPostion}}(\textcolor{keywordtype}{float} lastPlatformPostionY);}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_platform_aaa3bbd4ca31e24797134a71a5f43571d}{resetPlaformPosition}}(Ogre::Vector3 lastPlatformPosition);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     Ogre::Vector3 setPlatformLevel(Ogre::Vector3 lastPlatformPosition);}
+\DoxyCodeLine{20     Ogre::Vector3 SpawnPos;}
+\DoxyCodeLine{21     SceneManager* mSceneManager;}
+\DoxyCodeLine{22     SceneNode* mSceneNode;}
+\DoxyCodeLine{23     Entity* mEntity;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

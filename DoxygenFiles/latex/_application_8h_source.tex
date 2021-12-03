@@ -1,0 +1,61 @@
+\hypertarget{_application_8h_source}{}\doxysection{Application.\+h}
+\mbox{\hyperlink{_application_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef \_APPLICATION\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define \_APPLICATION\_H\_}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Ogre.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}OgreApplicationContext.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}OgreInput.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}OgreRTShaderSystem.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <OgreCompositorManager.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_platform_8h}{Platform.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_doodle_8h}{Doodle.h}}"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{using namespace }Ogre;}
+\DoxyCodeLine{15 \textcolor{keyword}{using namespace }OgreBites;}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_application}{Application}}}
+\DoxyCodeLine{18     : \textcolor{keyword}{public} ApplicationContext}
+\DoxyCodeLine{19     }
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_application_afa8cc05ce6b6092be5ecdfdae44e05f8}{Application}}() : ApplicationContext(\textcolor{stringliteral}{"{}Assignment\_2\_ShularLee"{}}) \{\}}
+\DoxyCodeLine{24     \textcolor{keyword}{static} \mbox{\hyperlink{class_application}{Application}}* \mbox{\hyperlink{class_application_ab814686facd929e38ef435a4d7c9847e}{app}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_ac3d35f15460c28556d539612461cddb5}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_application}{Application}}\&) = \textcolor{keyword}{delete};}
+\DoxyCodeLine{31     \textcolor{keyword}{static} \mbox{\hyperlink{class_application}{Application}}* \mbox{\hyperlink{class_application_a0e2b7844cd6d6134c9109f1e6a242eed}{GetInstance}}() }
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_application_ab814686facd929e38ef435a4d7c9847e}{app}} == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{34             \mbox{\hyperlink{class_application_ab814686facd929e38ef435a4d7c9847e}{app}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_application_afa8cc05ce6b6092be5ecdfdae44e05f8}{Application}};}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_application_ab814686facd929e38ef435a4d7c9847e}{app}};}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38     }
+\DoxyCodeLine{39     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_application_a02799e64b246a6b6b8fa58477882a4be}{Run}}();   }
+\DoxyCodeLine{40     \textcolor{keywordtype}{bool}\& \mbox{\hyperlink{class_application_a3a47b3789cab201c0dc9243edbaa8486}{Running}}();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a31dd3f7f8fba9fc2fd32ceaff6ce36e7}{setup}}();}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_af350d54cb0dd2c0c8a2e9f01fe384057}{Wake}}();}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a8126de1bc7917f6160f026619358d020}{Sleep}}();}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a955518f4367c5844d1e3b8cef380ff25}{HandleEvents}}();}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_application_af15647ac973ce1c2f661d5fb61bafdbf}{Update}}();    }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a75febcb5d127ef877dcd39fea0b9210c}{Clean}}();}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_application_a18ce60ff74485344dcf36759dfa7f0e9}{setIsRunning}}(\textcolor{keywordtype}{bool} a) \{m\_running = a; \}}
+\DoxyCodeLine{48 \textcolor{keyword}{private}:}
+\DoxyCodeLine{49     Ogre::Timer timer;}
+\DoxyCodeLine{50     Ogre::SceneNode* SinbadNode;}
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} m\_running;}
+\DoxyCodeLine{52     Root* mRoot;}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} m\_start, m\_end, m\_delta, m\_fps;}
+\DoxyCodeLine{54     Camera* mCamera;}
+\DoxyCodeLine{55     SceneManager* mScnMgr;}
+\DoxyCodeLine{56     RenderWindow* mWindow;  }
+\DoxyCodeLine{57     SceneNode* mCamNode;}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//\_APPLICATION\_H\_}}
+\DoxyCodeLine{61 }
+
+\end{DoxyCode}
