@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "FrameListenerEX.cpp"
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -10,43 +11,7 @@ float rotY = 0.0f;
 float _movementspeed;
 Game* Game::_game = nullptr;
 
-class ExampleFrameListener : public Ogre::FrameListener, public InputListener
-{
-private:
-    Ogre::SceneNode* _sceneNode;
-    Ogre::SceneNode* _camNode;
-    float _movementspeed;
-    float _mousespeed;
-public:
 
-    ExampleFrameListener(Ogre::SceneNode* sceneNode, Ogre::SceneNode* camNode)
-    {
-        _sceneNode = sceneNode;
-        _camNode = camNode;
-        _movementspeed = 200.0f;
-        _mousespeed = 0.02f;
-    }
-
-    bool frameStarted(const Ogre::FrameEvent& evt)
-    {
-        _sceneNode->translate(translate * evt.timeSinceLastFrame);
-        translate = Ogre::Vector3(0, 0, 0);
-        return true;
-    }
-
-    bool frameEnded(const Ogre::FrameEvent& evt)
-    {
-
-        //std::cout << "Frame ended" << std::endl;
-        return true;
-    }
-
-    bool frameRenderingQueued(const Ogre::FrameEvent& evt)
-    {
-        //std::cout << "Frame queued" << std::endl;
-        return true;
-    }
-};
 
 /// The defualt conconstructor
 /// 
@@ -192,7 +157,7 @@ bool Game::keyPressed(const KeyboardEvent& evt)
 /// Create FrameLisener and add to root
 void Game::createFrameListener()
 {
-    Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode);
+    Ogre::FrameListener* FrameListener = new ExampleFrameListener(SinbadNode, mCamNode, &translate);
     mRoot->addFrameListener(FrameListener);
 }
 
