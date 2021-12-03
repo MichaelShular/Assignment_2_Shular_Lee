@@ -13,19 +13,21 @@
 
 using namespace Ogre;
 using namespace OgreBites;
-
+/// This class is used to control the start of the application and logic flow with in the application
 class Application
 	: public ApplicationContext
 	
 {
 protected:
+	/// The defualt conconstructor
 	Application() : ApplicationContext("Assignment_2_ShularLee") {}
 	static Application* app;
 
 public:
 	void operator=(const Application&) = delete;
-	
-
+	/// Used to get a single instance of the application class
+	/// 
+	/// @returns the created Application.
 	static Application* GetInstance() 
 	{
 		if (app == nullptr) {
@@ -53,13 +55,6 @@ private:
 	SceneManager* mScnMgr;
 	RenderWindow* mWindow; 	
 	SceneNode* mCamNode;
-	Platform* plaform[9];
-	Doodle* doodle;
-	/*Ogre::String mResourcesCfg;
-	Ogre::String mPluginsCfg;*/
-private:
-	
-
 };
 
 #endif //_APPLICATION_H_

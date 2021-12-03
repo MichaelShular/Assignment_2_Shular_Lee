@@ -1,3 +1,7 @@
+//Assignment_2_ShularLee
+//Michael Shular 101273089
+//Daekoen Lee 101076401
+
 #include <iostream>
 #include "Application.h"
 

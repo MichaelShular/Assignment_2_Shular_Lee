@@ -190,7 +190,6 @@ void Game::renderOneFrame()
         doodle->showReset = true;
     }
 
-
     if (doodle->showReset == true) {
         gameUI->setCaptionForLabel(0, Ogre::StringConverter::toString(mPausedTime));
         gameUI->setTrayVisibility(1, true);
@@ -232,11 +231,6 @@ void Game::renderOneFrame()
         mRoot->queueEndRendering();
         Application::GetInstance()->setIsRunning(false);
     }
-   
-    /*if (doodle->Goal(plaform[8]->GetPosition().y))
-    {
-        Application::GetInstance()->Running() = false;
-    }*/
 
     //Game Collision
     if (doodle->getIsFalling()) {
@@ -262,11 +256,6 @@ void Game::renderOneFrame()
         mCurrentCameraPostion = mCamNode->getPosition().y;
     }
 
-
-
-    std::cout << doodle->GetPosition().y << std::endl;
-    
-    
     gameInput->reset();
 }
 

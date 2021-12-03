@@ -5,13 +5,11 @@
 #include <stdio.h>
 #include <irrKlang.h>
 
-
 using namespace irrklang;
 
 #pragma comment(lib, "irrKlang.lib")
 
-
-
+/// This class is used to control the game's audio 
 class Audio {
 protected:
     Audio();
@@ -27,7 +25,6 @@ public:
     void playBGM(const char *filepath);
     void setVolume(float amount);
     void stopAllSound();
-
 
 private:
     ISoundEngine* engine; 

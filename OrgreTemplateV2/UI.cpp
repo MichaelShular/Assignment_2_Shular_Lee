@@ -8,15 +8,6 @@ UI::UI(Ogre::RenderWindow* window, SceneManager* scnMgr, RenderQueueListener* ne
     mWindow = window;
     mScnMgr = scnMgr;
     mNewListener = newListener;
-
-    //TrayManager* TrayMgr, TrayManager* ButtonTrayMgr
-   /* mTrayMgr = TrayMgr;
-    mButtonTrayMgr = ButtonTrayMgr;
-    mTrayMgr->showFrameStats(TL_TOPRIGHT);
-    mTrayMgr->toggleAdvancedFrameStats();
-    mTime = mTrayMgr->createLabel(TL_TOPRIGHT, "time", "Time: 0", 150);
-    mReset = mButtonTrayMgr->createButton(TL_CENTER, "reset", "Reset", 100);
-    hideResetButton();*/
 }
 
 UI* UI::GetInstance(Ogre::RenderWindow* window, SceneManager* scnMgr, RenderQueueListener* newListener)

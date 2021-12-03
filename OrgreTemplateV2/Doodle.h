@@ -6,7 +6,7 @@
 #include "Physics.h"
 
 using namespace Ogre;
-/// This class is used to create and control aspects the object ball.
+/// This class is used to create and control aspects of the doodle which is the player
 class Doodle {
 public:
 	Doodle(Ogre::SceneManager* scMgr, SceneNode* SceneNode, Ogre::Vector3 spawnPosition);
@@ -14,15 +14,12 @@ public:
 	AxisAlignedBox GetWorldAABB();
 	void setIsFalling(bool a);
 	bool getIsFalling();
-	
 	Ogre::Vector3 GetPosition();
 	void resetPosition(Ogre::Vector3 spawnPosition);
-	bool Goal(float d);
 	void Update(Vector3 gravity, float cameraY);
 	float getApexHeight();
 	
 	bool showReset;
-
 private:
 	SceneManager* mSceneManager;
 	SceneNode* mSceneNode;
@@ -32,11 +29,5 @@ private:
 	Ogre::Vector3 spawnLocation;
 	float apexHeight;
 };
-
-
-
-
-
-
 
 #endif
