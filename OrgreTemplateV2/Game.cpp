@@ -58,6 +58,7 @@ public:
 
 void Game::setup()
 {       
+    // Add Input Listener to Root
     Application::GetInstance()->addInputListener(this);
     createCamera();
     createScene();
@@ -116,7 +117,7 @@ void Game::createScene()
         }
     }
     //Spawning doodle
-    doodle = new Doodle(mScnMgr, SinbadNode, Vector3(0,0,0));
+    doodle = new Doodle(mScnMgr, SinbadNode, plaform[0]->GetPosition());
 
 
 }
@@ -183,8 +184,13 @@ void Game::createFrameListener()
 
 void Game::renderOneFrame()
 {
+    if (doodle->Goal(plaform[8]->GetPosition().y))
+    {
+        Application::GetInstance()->Running() = false;
+    }
     //Ogre::WindowEventUtilities::messagePump();
     mRoot->renderOneFrame();
+    // Cam Following player 
     mCamNode->lookAt(doodle->GetPosition(), Node::TS_WORLD);
     mCamNode->setPosition(doodle->GetPosition().x, doodle->GetPosition().y, 25);
     
@@ -199,6 +205,7 @@ Game::Game(Root* root, SceneManager* scn ,Camera* cam)
 
 Game* Game::GetInstance(Root* root, SceneManager* scn, Camera* cam)
 {
+    // Make instance of Game
     if (_game == nullptr) {
         _game = new Game(root, scn, cam);
     }

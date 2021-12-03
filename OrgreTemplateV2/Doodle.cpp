@@ -52,6 +52,13 @@ void Doodle::resetPosition()
     showReset = false;
 }
 
+bool Doodle::Goal(float d)
+{
+    if (GetPosition().y > d)
+        return true;
+    return false;
+}
+
 
 void Doodle::Update(Vector3 gravity)
 {

@@ -40,8 +40,7 @@ public:
 	void Wake();
 	void Sleep();
 	void HandleEvents();
-	bool Update();
-	void Render();
+	bool Update();	
 	void Clean();
 private:
 	Ogre::Timer timer;
